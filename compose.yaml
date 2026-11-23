@@ -1,0 +1,38 @@
+services:
+  skillpulse-api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      SKILLPULSE_DATABASE_PATH: /var/lib/skillpulse/skillpulse.db
+      SKILLPULSE_ARTIFACT_DIR: /var/lib/skillpulse/artifacts
+      SKILLPULSE_DATASET_PATH: /app/data/synthetic/model_snapshots.csv
+      SKILLPULSE_ENVIRONMENT: ${SKILLPULSE_ENVIRONMENT:-demo}
+      SKILLPULSE_JWT_SECRET: ${SKILLPULSE_JWT_SECRET:-}
+      SKILLPULSE_BOOTSTRAP_ADMIN_USERNAME: ${SKILLPULSE_BOOTSTRAP_ADMIN_USERNAME:-}
+      SKILLPULSE_BOOTSTRAP_ADMIN_PASSWORD: ${SKILLPULSE_BOOTSTRAP_ADMIN_PASSWORD:-}
+    volumes:
+      - skillpulse_data:/var/lib/skillpulse
+    ports:
+      - "127.0.0.1:${SKILLPULSE_API_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/api/health', timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 8
+      start_period: 120s
+    restart: unless-stopped
+
+  skillpulse-web:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    depends_on:
+      skillpulse-api:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${SKILLPULSE_WEB_PORT:-8080}:80"
+    restart: unless-stopped
+
+volumes:
+  skillpulse_data:

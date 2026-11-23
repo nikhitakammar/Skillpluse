@@ -1,0 +1,15 @@
+.account-create-panel,.account-list-panel{margin-bottom:15px}
+.account-create-panel h2,.account-list-panel h2{font-family:Manrope,sans-serif;color:#2a3850;font-size:13px;margin:0}
+.account-create-panel>.page-description{margin:5px 0 14px}
+.account-create-form{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));align-items:end;gap:12px}
+.account-create-form label{display:grid;gap:5px;color:#7e8a9e;font-size:9px}
+.account-create-form input{width:100%;box-sizing:border-box;border:1px solid #e5e9f0;border-radius:7px;padding:8px;color:#536177;font:inherit;background:#fff}
+.account-create-form button{justify-self:start}
+.account-status{font-size:10px;padding:9px 11px;border-radius:6px;white-space:pre-line}
+.account-status.success{color:#38846e;background:#edf8f3}
+.account-status.error{color:#a94d4d;background:#fff1f1}
+.account-list-panel .panel-heading{align-items:center;margin-bottom:10px}
+.account-count{display:grid;place-items:center;min-width:26px;height:26px;border-radius:8px;background:#f0f3fb;color:#6075bb;font-size:10px;font-weight:700}
+.account-list-panel .role-chip{display:inline-block}
+@media(max-width:800px){.account-create-form{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.account-create-form{grid-template-columns:1fr}}

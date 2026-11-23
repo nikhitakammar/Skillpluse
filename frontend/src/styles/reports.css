@@ -1,0 +1,6 @@
+.confusion-matrix{display:table;width:calc(100% + 8px);margin:0 -4px;border-collapse:separate;border-spacing:4px;table-layout:fixed}
+.confusion-matrix th,.confusion-matrix td{height:48px;padding:5px;border:0;border-radius:5px;text-align:center;vertical-align:middle}
+.confusion-matrix thead th{height:30px;background:#f7f8fb;color:#8994a5;font-family:'DM Sans',sans-serif;font-size:8px;font-weight:600}
+.confusion-matrix tbody th{background:#f7f8fb;color:#8994a5;font-family:'DM Sans',sans-serif;font-size:8px;font-weight:600}
+.confusion-matrix td{font-family:Manrope,sans-serif;font-size:14px;font-weight:700}
+.confusion-matrix td span{display:block;margin-top:3px;color:#8b96a8;font-family:'DM Sans',sans-serif;font-size:7px;font-weight:500}

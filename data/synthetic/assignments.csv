@@ -1,0 +1,17 @@
+assignment_id,batch_id,title,skill_area,assigned_date,due_date
+ASN-01-01,BATCH-01,Python Practice 1,Python,2025-01-13,2025-01-20
+ASN-01-02,BATCH-01,SQL Practice 2,SQL,2025-01-27,2025-02-03
+ASN-01-03,BATCH-01,Problem Solving Practice 3,Problem Solving,2025-02-10,2025-02-17
+ASN-01-04,BATCH-01,Communication Practice 4,Communication,2025-02-17,2025-02-24
+ASN-02-01,BATCH-02,Python Practice 1,Python,2025-01-13,2025-01-20
+ASN-02-02,BATCH-02,SQL Practice 2,SQL,2025-01-27,2025-02-03
+ASN-02-03,BATCH-02,Problem Solving Practice 3,Problem Solving,2025-02-10,2025-02-17
+ASN-02-04,BATCH-02,Communication Practice 4,Communication,2025-02-17,2025-02-24
+ASN-03-01,BATCH-03,Python Practice 1,Python,2025-02-10,2025-02-17
+ASN-03-02,BATCH-03,SQL Practice 2,SQL,2025-02-24,2025-03-03
+ASN-03-03,BATCH-03,Problem Solving Practice 3,Problem Solving,2025-03-10,2025-03-17
+ASN-03-04,BATCH-03,Communication Practice 4,Communication,2025-03-17,2025-03-24
+ASN-04-01,BATCH-04,Python Practice 1,Python,2025-02-10,2025-02-17
+ASN-04-02,BATCH-04,SQL Practice 2,SQL,2025-02-24,2025-03-03
+ASN-04-03,BATCH-04,Problem Solving Practice 3,Problem Solving,2025-03-10,2025-03-17
+ASN-04-04,BATCH-04,Communication Practice 4,Communication,2025-03-17,2025-03-24

@@ -1,0 +1,14 @@
+# JavaScript dependencies and build output
+node_modules/
+frontend/dist/
+
+# Python generated files and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+backend/artifacts/
+
+# Local databases and environment variables
+*.db
+.env

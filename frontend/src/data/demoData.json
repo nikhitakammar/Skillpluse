@@ -1,0 +1,2360 @@
+{
+  "dataOrigin": "synthetic_demo",
+  "generatedAt": "2026-11-23",
+  "summary": {
+    "activeLearners": 120,
+    "averageScore": 65.8,
+    "attendanceRate": 85.6,
+    "completionRate": 84.0,
+    "belowBenchmark": 74
+  },
+  "batches": [
+    {
+      "batchId": "BATCH-01",
+      "name": "Python Foundations \u00b7 Jan 2025",
+      "program": "Python Development",
+      "startDate": "2025-01-06",
+      "endDate": "2025-03-24",
+      "status": "completed",
+      "learnerCount": 30,
+      "averageScore": 73.1,
+      "attendanceRate": 81.9,
+      "completionRate": 82.5
+    },
+    {
+      "batchId": "BATCH-02",
+      "name": "Data Analytics \u00b7 Jan 2025",
+      "program": "Data Analytics",
+      "startDate": "2025-01-06",
+      "endDate": "2025-03-24",
+      "status": "completed",
+      "learnerCount": 30,
+      "averageScore": 63.4,
+      "attendanceRate": 87.4,
+      "completionRate": 80.8
+    },
+    {
+      "batchId": "BATCH-03",
+      "name": "Web Development \u00b7 Feb 2025",
+      "program": "Web Development",
+      "startDate": "2025-02-03",
+      "endDate": "2025-04-21",
+      "status": "completed",
+      "learnerCount": 30,
+      "averageScore": 65.6,
+      "attendanceRate": 85.7,
+      "completionRate": 86.7
+    },
+    {
+      "batchId": "BATCH-04",
+      "name": "QA Engineering \u00b7 Feb 2025",
+      "program": "QA Engineering",
+      "startDate": "2025-02-03",
+      "endDate": "2025-04-21",
+      "status": "completed",
+      "learnerCount": 30,
+      "averageScore": 61.0,
+      "attendanceRate": 87.4,
+      "completionRate": 85.8
+    }
+  ],
+  "students": [
+    {
+      "studentId": "STU-001",
+      "fullName": "Kavya Rao",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 77.2,
+      "scoreTrend": 22.1,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-002",
+      "fullName": "Sara Khan",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 55.3,
+      "scoreTrend": -6.4,
+      "attendanceRate": 57.1,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-003",
+      "fullName": "Diya Chandra",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 37.0,
+      "scoreTrend": -9.7,
+      "attendanceRate": 100.0,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-004",
+      "fullName": "Riya Shah",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 88.1,
+      "scoreTrend": 4.8,
+      "attendanceRate": 57.1,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-005",
+      "fullName": "Anaya Kulkarni",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 69.6,
+      "scoreTrend": 19.2,
+      "attendanceRate": 85.7,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-006",
+      "fullName": "Nisha Desai",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 56.5,
+      "scoreTrend": 1.9,
+      "attendanceRate": 92.9,
+      "completionRate": 50.0
+    },
+    {
+      "studentId": "STU-007",
+      "fullName": "Aditi Sharma",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 76.8,
+      "scoreTrend": -3.4,
+      "attendanceRate": 100.0,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-008",
+      "fullName": "Meera Menon",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 76.4,
+      "scoreTrend": 12.7,
+      "attendanceRate": 78.6,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-009",
+      "fullName": "Vihaan Gupta",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 68.6,
+      "scoreTrend": 6.6,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-010",
+      "fullName": "Ishaan Singh",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 83.6,
+      "scoreTrend": -8.1,
+      "attendanceRate": 71.4,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-011",
+      "fullName": "Rohan Nair",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 91.6,
+      "scoreTrend": -5.6,
+      "attendanceRate": 78.6,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-012",
+      "fullName": "Arjun Iyer",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 69.2,
+      "scoreTrend": 10.9,
+      "attendanceRate": 85.7,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-013",
+      "fullName": "Pranav Verma",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 64.9,
+      "scoreTrend": 2.7,
+      "attendanceRate": 85.7,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-014",
+      "fullName": "Akash Patel",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 64.9,
+      "scoreTrend": 13.1,
+      "attendanceRate": 92.9,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-015",
+      "fullName": "Neel Kapoor",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 54.8,
+      "scoreTrend": -1.1,
+      "attendanceRate": 100.0,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-016",
+      "fullName": "Aarav Bose",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 74.9,
+      "scoreTrend": -0.4,
+      "attendanceRate": 85.7,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-017",
+      "fullName": "Kavya Rao",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 72.2,
+      "scoreTrend": 8.2,
+      "attendanceRate": 92.9,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-018",
+      "fullName": "Sara Khan",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 93.6,
+      "scoreTrend": 1.2,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-019",
+      "fullName": "Diya Chandra",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 63.8,
+      "scoreTrend": 22.4,
+      "attendanceRate": 92.9,
+      "completionRate": 50.0
+    },
+    {
+      "studentId": "STU-020",
+      "fullName": "Riya Shah",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 65.5,
+      "scoreTrend": 8.9,
+      "attendanceRate": 42.9,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-021",
+      "fullName": "Anaya Kulkarni",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 87.8,
+      "scoreTrend": 13.0,
+      "attendanceRate": 85.7,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-022",
+      "fullName": "Nisha Desai",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 75.4,
+      "scoreTrend": -1.2,
+      "attendanceRate": 85.7,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-023",
+      "fullName": "Aditi Sharma",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 44.6,
+      "scoreTrend": -1.7,
+      "attendanceRate": 78.6,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-024",
+      "fullName": "Meera Menon",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 78.9,
+      "scoreTrend": -2.1,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-025",
+      "fullName": "Vihaan Gupta",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 91.6,
+      "scoreTrend": -2.9,
+      "attendanceRate": 78.6,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-026",
+      "fullName": "Ishaan Singh",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 85.7,
+      "scoreTrend": 2.4,
+      "attendanceRate": 57.1,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-027",
+      "fullName": "Rohan Nair",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 79.5,
+      "scoreTrend": 3.3,
+      "attendanceRate": 71.4,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-028",
+      "fullName": "Arjun Iyer",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 83.9,
+      "scoreTrend": 7.4,
+      "attendanceRate": 50.0,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-029",
+      "fullName": "Pranav Verma",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 73.5,
+      "scoreTrend": -4.6,
+      "attendanceRate": 78.6,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-030",
+      "fullName": "Akash Patel",
+      "batchId": "BATCH-01",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 86.9,
+      "scoreTrend": 12.4,
+      "attendanceRate": 71.4,
+      "completionRate": 50.0
+    },
+    {
+      "studentId": "STU-031",
+      "fullName": "Nisha Menon",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 45.6,
+      "scoreTrend": 15.6,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-032",
+      "fullName": "Aditi Gupta",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 92.2,
+      "scoreTrend": -1.2,
+      "attendanceRate": 100.0,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-033",
+      "fullName": "Meera Singh",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 69.8,
+      "scoreTrend": 17.4,
+      "attendanceRate": 42.9,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-034",
+      "fullName": "Vihaan Nair",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 48.1,
+      "scoreTrend": 9.9,
+      "attendanceRate": 100.0,
+      "completionRate": 50.0
+    },
+    {
+      "studentId": "STU-035",
+      "fullName": "Ishaan Iyer",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 68.6,
+      "scoreTrend": 15.5,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-036",
+      "fullName": "Rohan Verma",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 81.0,
+      "scoreTrend": -2.5,
+      "attendanceRate": 57.1,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-037",
+      "fullName": "Arjun Patel",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 52.6,
+      "scoreTrend": -6.2,
+      "attendanceRate": 92.9,
+      "completionRate": 25.0
+    },
+    {
+      "studentId": "STU-038",
+      "fullName": "Pranav Kapoor",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 64.3,
+      "scoreTrend": 14.9,
+      "attendanceRate": 78.6,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-039",
+      "fullName": "Akash Bose",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 86.5,
+      "scoreTrend": 1.9,
+      "attendanceRate": 64.3,
+      "completionRate": 50.0
+    },
+    {
+      "studentId": "STU-040",
+      "fullName": "Neel Rao",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 75.0,
+      "scoreTrend": 11.5,
+      "attendanceRate": 100.0,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-041",
+      "fullName": "Aarav Khan",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 77.4,
+      "scoreTrend": 0.3,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-042",
+      "fullName": "Kavya Chandra",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 68.0,
+      "scoreTrend": -3.1,
+      "attendanceRate": 100.0,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-043",
+      "fullName": "Sara Shah",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 61.2,
+      "scoreTrend": -1.0,
+      "attendanceRate": 85.7,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-044",
+      "fullName": "Diya Kulkarni",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 89.4,
+      "scoreTrend": -0.7,
+      "attendanceRate": 85.7,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-045",
+      "fullName": "Riya Desai",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 58.1,
+      "scoreTrend": -2.3,
+      "attendanceRate": 71.4,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-046",
+      "fullName": "Anaya Sharma",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 46.8,
+      "scoreTrend": -3.5,
+      "attendanceRate": 100.0,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-047",
+      "fullName": "Nisha Menon",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 40.3,
+      "scoreTrend": -6.8,
+      "attendanceRate": 100.0,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-048",
+      "fullName": "Aditi Gupta",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 47.3,
+      "scoreTrend": -7.0,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-049",
+      "fullName": "Meera Singh",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 40.5,
+      "scoreTrend": 1.4,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-050",
+      "fullName": "Vihaan Nair",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 80.7,
+      "scoreTrend": 5.3,
+      "attendanceRate": 85.7,
+      "completionRate": 25.0
+    },
+    {
+      "studentId": "STU-051",
+      "fullName": "Ishaan Iyer",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 64.4,
+      "scoreTrend": -0.4,
+      "attendanceRate": 78.6,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-052",
+      "fullName": "Rohan Verma",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 64.4,
+      "scoreTrend": 2.3,
+      "attendanceRate": 92.9,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-053",
+      "fullName": "Arjun Patel",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 44.6,
+      "scoreTrend": -1.2,
+      "attendanceRate": 71.4,
+      "completionRate": 25.0
+    },
+    {
+      "studentId": "STU-054",
+      "fullName": "Pranav Kapoor",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 71.9,
+      "scoreTrend": 19.4,
+      "attendanceRate": 64.3,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-055",
+      "fullName": "Akash Bose",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 72.3,
+      "scoreTrend": 5.4,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-056",
+      "fullName": "Neel Rao",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 79.5,
+      "scoreTrend": -1.8,
+      "attendanceRate": 78.6,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-057",
+      "fullName": "Aarav Khan",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 68.6,
+      "scoreTrend": -12.8,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-058",
+      "fullName": "Kavya Chandra",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 56.3,
+      "scoreTrend": 15.8,
+      "attendanceRate": 92.9,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-059",
+      "fullName": "Sara Shah",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 30.7,
+      "scoreTrend": 7.0,
+      "attendanceRate": 85.7,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-060",
+      "fullName": "Diya Kulkarni",
+      "batchId": "BATCH-02",
+      "enrollmentDate": "2025-01-06",
+      "isActive": true,
+      "averageScore": 56.7,
+      "scoreTrend": -0.5,
+      "attendanceRate": 92.9,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-061",
+      "fullName": "Rohan Kapoor",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 56.4,
+      "scoreTrend": 10.7,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-062",
+      "fullName": "Arjun Bose",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 77.9,
+      "scoreTrend": -10.1,
+      "attendanceRate": 92.9,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-063",
+      "fullName": "Pranav Rao",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 80.3,
+      "scoreTrend": 10.4,
+      "attendanceRate": 71.4,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-064",
+      "fullName": "Akash Khan",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 87.0,
+      "scoreTrend": 10.1,
+      "attendanceRate": 100.0,
+      "completionRate": 50.0
+    },
+    {
+      "studentId": "STU-065",
+      "fullName": "Neel Chandra",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 52.2,
+      "scoreTrend": -1.2,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-066",
+      "fullName": "Aarav Shah",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 78.7,
+      "scoreTrend": 10.5,
+      "attendanceRate": 92.9,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-067",
+      "fullName": "Kavya Kulkarni",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 63.4,
+      "scoreTrend": 2.2,
+      "attendanceRate": 71.4,
+      "completionRate": 50.0
+    },
+    {
+      "studentId": "STU-068",
+      "fullName": "Sara Desai",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 66.6,
+      "scoreTrend": 2.1,
+      "attendanceRate": 57.1,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-069",
+      "fullName": "Diya Sharma",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 58.8,
+      "scoreTrend": 1.8,
+      "attendanceRate": 78.6,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-070",
+      "fullName": "Riya Menon",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 62.0,
+      "scoreTrend": 15.0,
+      "attendanceRate": 78.6,
+      "completionRate": 50.0
+    },
+    {
+      "studentId": "STU-071",
+      "fullName": "Anaya Gupta",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 80.6,
+      "scoreTrend": 1.2,
+      "attendanceRate": 71.4,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-072",
+      "fullName": "Nisha Singh",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 66.0,
+      "scoreTrend": 5.5,
+      "attendanceRate": 92.9,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-073",
+      "fullName": "Aditi Nair",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 66.5,
+      "scoreTrend": 8.0,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-074",
+      "fullName": "Meera Iyer",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 90.5,
+      "scoreTrend": -1.2,
+      "attendanceRate": 71.4,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-075",
+      "fullName": "Vihaan Verma",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 61.2,
+      "scoreTrend": 8.2,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-076",
+      "fullName": "Ishaan Patel",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 89.4,
+      "scoreTrend": -5.2,
+      "attendanceRate": 100.0,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-077",
+      "fullName": "Rohan Kapoor",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 51.2,
+      "scoreTrend": -6.9,
+      "attendanceRate": 85.7,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-078",
+      "fullName": "Arjun Bose",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 76.4,
+      "scoreTrend": -5.5,
+      "attendanceRate": 71.4,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-079",
+      "fullName": "Pranav Rao",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 28.1,
+      "scoreTrend": 11.7,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-080",
+      "fullName": "Akash Khan",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 63.9,
+      "scoreTrend": 6.5,
+      "attendanceRate": 64.3,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-081",
+      "fullName": "Neel Chandra",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 68.7,
+      "scoreTrend": -3.0,
+      "attendanceRate": 100.0,
+      "completionRate": 50.0
+    },
+    {
+      "studentId": "STU-082",
+      "fullName": "Aarav Shah",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 67.9,
+      "scoreTrend": 5.5,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-083",
+      "fullName": "Kavya Kulkarni",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 52.6,
+      "scoreTrend": 6.7,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-084",
+      "fullName": "Sara Desai",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 47.5,
+      "scoreTrend": -4.9,
+      "attendanceRate": 64.3,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-085",
+      "fullName": "Diya Sharma",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 59.4,
+      "scoreTrend": 6.1,
+      "attendanceRate": 85.7,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-086",
+      "fullName": "Riya Menon",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 45.0,
+      "scoreTrend": -0.2,
+      "attendanceRate": 71.4,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-087",
+      "fullName": "Anaya Gupta",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 80.8,
+      "scoreTrend": -1.5,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-088",
+      "fullName": "Nisha Singh",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 72.9,
+      "scoreTrend": 2.6,
+      "attendanceRate": 64.3,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-089",
+      "fullName": "Aditi Nair",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 68.3,
+      "scoreTrend": 1.2,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-090",
+      "fullName": "Meera Iyer",
+      "batchId": "BATCH-03",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 48.5,
+      "scoreTrend": -4.8,
+      "attendanceRate": 85.7,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-091",
+      "fullName": "Aarav Desai",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 42.5,
+      "scoreTrend": -2.3,
+      "attendanceRate": 85.7,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-092",
+      "fullName": "Kavya Sharma",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 51.8,
+      "scoreTrend": 1.6,
+      "attendanceRate": 78.6,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-093",
+      "fullName": "Sara Menon",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 86.7,
+      "scoreTrend": -3.9,
+      "attendanceRate": 78.6,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-094",
+      "fullName": "Diya Gupta",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 69.8,
+      "scoreTrend": -1.9,
+      "attendanceRate": 85.7,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-095",
+      "fullName": "Riya Singh",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 30.3,
+      "scoreTrend": -2.6,
+      "attendanceRate": 78.6,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-096",
+      "fullName": "Anaya Nair",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 60.1,
+      "scoreTrend": 15.9,
+      "attendanceRate": 92.9,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-097",
+      "fullName": "Nisha Iyer",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 66.4,
+      "scoreTrend": 4.3,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-098",
+      "fullName": "Aditi Verma",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 70.4,
+      "scoreTrend": 1.5,
+      "attendanceRate": 85.7,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-099",
+      "fullName": "Meera Patel",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 73.4,
+      "scoreTrend": -6.3,
+      "attendanceRate": 100.0,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-100",
+      "fullName": "Vihaan Kapoor",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 73.6,
+      "scoreTrend": 6.7,
+      "attendanceRate": 71.4,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-101",
+      "fullName": "Ishaan Bose",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 80.2,
+      "scoreTrend": 0.9,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-102",
+      "fullName": "Rohan Rao",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 79.0,
+      "scoreTrend": 6.7,
+      "attendanceRate": 71.4,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-103",
+      "fullName": "Arjun Khan",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 68.7,
+      "scoreTrend": 9.0,
+      "attendanceRate": 85.7,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-104",
+      "fullName": "Pranav Chandra",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 61.4,
+      "scoreTrend": 5.6,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-105",
+      "fullName": "Akash Shah",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 56.9,
+      "scoreTrend": 18.6,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-106",
+      "fullName": "Neel Kulkarni",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 85.0,
+      "scoreTrend": -4.1,
+      "attendanceRate": 85.7,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-107",
+      "fullName": "Aarav Desai",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 56.7,
+      "scoreTrend": -3.1,
+      "attendanceRate": 92.9,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-108",
+      "fullName": "Kavya Sharma",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 49.2,
+      "scoreTrend": 0.7,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-109",
+      "fullName": "Sara Menon",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 63.8,
+      "scoreTrend": 1.5,
+      "attendanceRate": 57.1,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-110",
+      "fullName": "Diya Gupta",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 63.4,
+      "scoreTrend": 10.3,
+      "attendanceRate": 92.9,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-111",
+      "fullName": "Riya Singh",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 81.2,
+      "scoreTrend": -4.7,
+      "attendanceRate": 85.7,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-112",
+      "fullName": "Anaya Nair",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 68.1,
+      "scoreTrend": -2.5,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-113",
+      "fullName": "Nisha Iyer",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 35.0,
+      "scoreTrend": 8.8,
+      "attendanceRate": 92.9,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-114",
+      "fullName": "Aditi Verma",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 59.4,
+      "scoreTrend": 4.2,
+      "attendanceRate": 78.6,
+      "completionRate": 50.0
+    },
+    {
+      "studentId": "STU-115",
+      "fullName": "Meera Patel",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 52.7,
+      "scoreTrend": 15.3,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-116",
+      "fullName": "Vihaan Kapoor",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 51.1,
+      "scoreTrend": 14.2,
+      "attendanceRate": 92.9,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-117",
+      "fullName": "Ishaan Bose",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 34.8,
+      "scoreTrend": 1.7,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    },
+    {
+      "studentId": "STU-118",
+      "fullName": "Rohan Rao",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 68.2,
+      "scoreTrend": 2.3,
+      "attendanceRate": 78.6,
+      "completionRate": 75.0
+    },
+    {
+      "studentId": "STU-119",
+      "fullName": "Arjun Khan",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 43.9,
+      "scoreTrend": 5.1,
+      "attendanceRate": 50.0,
+      "completionRate": 25.0
+    },
+    {
+      "studentId": "STU-120",
+      "fullName": "Pranav Chandra",
+      "batchId": "BATCH-04",
+      "enrollmentDate": "2025-02-03",
+      "isActive": true,
+      "averageScore": 47.0,
+      "scoreTrend": 0.8,
+      "attendanceRate": 100.0,
+      "completionRate": 100.0
+    }
+  ],
+  "assessments": [
+    {
+      "assessmentId": "ASM-01-01-01",
+      "batchId": "BATCH-01",
+      "title": "Python Checkpoint 1",
+      "skillArea": "Python",
+      "assessmentDate": "2025-01-06",
+      "maxScore": 100.0,
+      "averageScore": 69.2,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-01-02",
+      "batchId": "BATCH-01",
+      "title": "SQL Checkpoint 1",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-01-06",
+      "maxScore": 100.0,
+      "averageScore": 70.5,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-01-03",
+      "batchId": "BATCH-01",
+      "title": "Problem Solving Checkpoint 1",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-01-06",
+      "maxScore": 100.0,
+      "averageScore": 75.0,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-01-04",
+      "batchId": "BATCH-01",
+      "title": "Communication Checkpoint 1",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-01-06",
+      "maxScore": 100.0,
+      "averageScore": 69.1,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-02-01",
+      "batchId": "BATCH-01",
+      "title": "Python Checkpoint 2",
+      "skillArea": "Python",
+      "assessmentDate": "2025-01-20",
+      "maxScore": 100.0,
+      "averageScore": 70.2,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-02-02",
+      "batchId": "BATCH-01",
+      "title": "SQL Checkpoint 2",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-01-20",
+      "maxScore": 100.0,
+      "averageScore": 71.4,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-02-03",
+      "batchId": "BATCH-01",
+      "title": "Problem Solving Checkpoint 2",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-01-20",
+      "maxScore": 100.0,
+      "averageScore": 74.7,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-02-04",
+      "batchId": "BATCH-01",
+      "title": "Communication Checkpoint 2",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-01-20",
+      "maxScore": 100.0,
+      "averageScore": 72.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-03-01",
+      "batchId": "BATCH-01",
+      "title": "Python Checkpoint 3",
+      "skillArea": "Python",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 71.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-03-02",
+      "batchId": "BATCH-01",
+      "title": "SQL Checkpoint 3",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 72.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-03-03",
+      "batchId": "BATCH-01",
+      "title": "Problem Solving Checkpoint 3",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 75.5,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-03-04",
+      "batchId": "BATCH-01",
+      "title": "Communication Checkpoint 3",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 75.6,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-04-01",
+      "batchId": "BATCH-01",
+      "title": "Python Checkpoint 4",
+      "skillArea": "Python",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 73.3,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-04-02",
+      "batchId": "BATCH-01",
+      "title": "SQL Checkpoint 4",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 76.9,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-04-03",
+      "batchId": "BATCH-01",
+      "title": "Problem Solving Checkpoint 4",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 75.2,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-01-04-04",
+      "batchId": "BATCH-01",
+      "title": "Communication Checkpoint 4",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 75.2,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-01-01",
+      "batchId": "BATCH-02",
+      "title": "Python Checkpoint 1",
+      "skillArea": "Python",
+      "assessmentDate": "2025-01-06",
+      "maxScore": 100.0,
+      "averageScore": 61.3,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-01-02",
+      "batchId": "BATCH-02",
+      "title": "SQL Checkpoint 1",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-01-06",
+      "maxScore": 100.0,
+      "averageScore": 59.6,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-01-03",
+      "batchId": "BATCH-02",
+      "title": "Problem Solving Checkpoint 1",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-01-06",
+      "maxScore": 100.0,
+      "averageScore": 62.7,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-01-04",
+      "batchId": "BATCH-02",
+      "title": "Communication Checkpoint 1",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-01-06",
+      "maxScore": 100.0,
+      "averageScore": 61.7,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-02-01",
+      "batchId": "BATCH-02",
+      "title": "Python Checkpoint 2",
+      "skillArea": "Python",
+      "assessmentDate": "2025-01-20",
+      "maxScore": 100.0,
+      "averageScore": 64.9,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-02-02",
+      "batchId": "BATCH-02",
+      "title": "SQL Checkpoint 2",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-01-20",
+      "maxScore": 100.0,
+      "averageScore": 62.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-02-03",
+      "batchId": "BATCH-02",
+      "title": "Problem Solving Checkpoint 2",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-01-20",
+      "maxScore": 100.0,
+      "averageScore": 66.9,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-02-04",
+      "batchId": "BATCH-02",
+      "title": "Communication Checkpoint 2",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-01-20",
+      "maxScore": 100.0,
+      "averageScore": 61.9,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-03-01",
+      "batchId": "BATCH-02",
+      "title": "Python Checkpoint 3",
+      "skillArea": "Python",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 65.2,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-03-02",
+      "batchId": "BATCH-02",
+      "title": "SQL Checkpoint 3",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 64.4,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-03-03",
+      "batchId": "BATCH-02",
+      "title": "Problem Solving Checkpoint 3",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 62.2,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-03-04",
+      "batchId": "BATCH-02",
+      "title": "Communication Checkpoint 3",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 63.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-04-01",
+      "batchId": "BATCH-02",
+      "title": "Python Checkpoint 4",
+      "skillArea": "Python",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 64.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-04-02",
+      "batchId": "BATCH-02",
+      "title": "SQL Checkpoint 4",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 63.6,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-04-03",
+      "batchId": "BATCH-02",
+      "title": "Problem Solving Checkpoint 4",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 68.7,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-02-04-04",
+      "batchId": "BATCH-02",
+      "title": "Communication Checkpoint 4",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 60.5,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-01-01",
+      "batchId": "BATCH-03",
+      "title": "Python Checkpoint 1",
+      "skillArea": "Python",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 62.7,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-01-02",
+      "batchId": "BATCH-03",
+      "title": "SQL Checkpoint 1",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 61.9,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-01-03",
+      "batchId": "BATCH-03",
+      "title": "Problem Solving Checkpoint 1",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 64.7,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-01-04",
+      "batchId": "BATCH-03",
+      "title": "Communication Checkpoint 1",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 68.9,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-02-01",
+      "batchId": "BATCH-03",
+      "title": "Python Checkpoint 2",
+      "skillArea": "Python",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 66.2,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-02-02",
+      "batchId": "BATCH-03",
+      "title": "SQL Checkpoint 2",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 61.6,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-02-03",
+      "batchId": "BATCH-03",
+      "title": "Problem Solving Checkpoint 2",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 63.0,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-02-04",
+      "batchId": "BATCH-03",
+      "title": "Communication Checkpoint 2",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 67.3,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-03-01",
+      "batchId": "BATCH-03",
+      "title": "Python Checkpoint 3",
+      "skillArea": "Python",
+      "assessmentDate": "2025-03-03",
+      "maxScore": 100.0,
+      "averageScore": 66.0,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-03-02",
+      "batchId": "BATCH-03",
+      "title": "SQL Checkpoint 3",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-03-03",
+      "maxScore": 100.0,
+      "averageScore": 65.2,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-03-03",
+      "batchId": "BATCH-03",
+      "title": "Problem Solving Checkpoint 3",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-03-03",
+      "maxScore": 100.0,
+      "averageScore": 63.6,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-03-04",
+      "batchId": "BATCH-03",
+      "title": "Communication Checkpoint 3",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-03-03",
+      "maxScore": 100.0,
+      "averageScore": 69.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-04-01",
+      "batchId": "BATCH-03",
+      "title": "Python Checkpoint 4",
+      "skillArea": "Python",
+      "assessmentDate": "2025-03-17",
+      "maxScore": 100.0,
+      "averageScore": 65.6,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-04-02",
+      "batchId": "BATCH-03",
+      "title": "SQL Checkpoint 4",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-03-17",
+      "maxScore": 100.0,
+      "averageScore": 64.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-04-03",
+      "batchId": "BATCH-03",
+      "title": "Problem Solving Checkpoint 4",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-03-17",
+      "maxScore": 100.0,
+      "averageScore": 67.5,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-03-04-04",
+      "batchId": "BATCH-03",
+      "title": "Communication Checkpoint 4",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-03-17",
+      "maxScore": 100.0,
+      "averageScore": 71.1,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-01-01",
+      "batchId": "BATCH-04",
+      "title": "Python Checkpoint 1",
+      "skillArea": "Python",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 57.2,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-01-02",
+      "batchId": "BATCH-04",
+      "title": "SQL Checkpoint 1",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 57.7,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-01-03",
+      "batchId": "BATCH-04",
+      "title": "Problem Solving Checkpoint 1",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 62.3,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-01-04",
+      "batchId": "BATCH-04",
+      "title": "Communication Checkpoint 1",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-02-03",
+      "maxScore": 100.0,
+      "averageScore": 60.0,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-02-01",
+      "batchId": "BATCH-04",
+      "title": "Python Checkpoint 2",
+      "skillArea": "Python",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 58.6,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-02-02",
+      "batchId": "BATCH-04",
+      "title": "SQL Checkpoint 2",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 62.2,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-02-03",
+      "batchId": "BATCH-04",
+      "title": "Problem Solving Checkpoint 2",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 60.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-02-04",
+      "batchId": "BATCH-04",
+      "title": "Communication Checkpoint 2",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-02-17",
+      "maxScore": 100.0,
+      "averageScore": 58.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-03-01",
+      "batchId": "BATCH-04",
+      "title": "Python Checkpoint 3",
+      "skillArea": "Python",
+      "assessmentDate": "2025-03-03",
+      "maxScore": 100.0,
+      "averageScore": 59.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-03-02",
+      "batchId": "BATCH-04",
+      "title": "SQL Checkpoint 3",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-03-03",
+      "maxScore": 100.0,
+      "averageScore": 65.3,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-03-03",
+      "batchId": "BATCH-04",
+      "title": "Problem Solving Checkpoint 3",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-03-03",
+      "maxScore": 100.0,
+      "averageScore": 62.7,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-03-04",
+      "batchId": "BATCH-04",
+      "title": "Communication Checkpoint 3",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-03-03",
+      "maxScore": 100.0,
+      "averageScore": 60.2,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-04-01",
+      "batchId": "BATCH-04",
+      "title": "Python Checkpoint 4",
+      "skillArea": "Python",
+      "assessmentDate": "2025-03-17",
+      "maxScore": 100.0,
+      "averageScore": 62.5,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-04-02",
+      "batchId": "BATCH-04",
+      "title": "SQL Checkpoint 4",
+      "skillArea": "SQL",
+      "assessmentDate": "2025-03-17",
+      "maxScore": 100.0,
+      "averageScore": 63.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-04-03",
+      "batchId": "BATCH-04",
+      "title": "Problem Solving Checkpoint 4",
+      "skillArea": "Problem Solving",
+      "assessmentDate": "2025-03-17",
+      "maxScore": 100.0,
+      "averageScore": 62.8,
+      "submittedCount": 30,
+      "learnerCount": 30
+    },
+    {
+      "assessmentId": "ASM-04-04-04",
+      "batchId": "BATCH-04",
+      "title": "Communication Checkpoint 4",
+      "skillArea": "Communication",
+      "assessmentDate": "2025-03-17",
+      "maxScore": 100.0,
+      "averageScore": 61.9,
+      "submittedCount": 30,
+      "learnerCount": 30
+    }
+  ],
+  "trends": [
+    {
+      "batchId": "BATCH-01",
+      "checkpoint": "Checkpoint 1",
+      "date": "2025-01-06",
+      "averageScore": 70.9
+    },
+    {
+      "batchId": "BATCH-01",
+      "checkpoint": "Checkpoint 2",
+      "date": "2025-01-20",
+      "averageScore": 72.3
+    },
+    {
+      "batchId": "BATCH-01",
+      "checkpoint": "Checkpoint 3",
+      "date": "2025-02-03",
+      "averageScore": 73.9
+    },
+    {
+      "batchId": "BATCH-01",
+      "checkpoint": "Checkpoint 4",
+      "date": "2025-02-17",
+      "averageScore": 75.1
+    },
+    {
+      "batchId": "BATCH-02",
+      "checkpoint": "Checkpoint 1",
+      "date": "2025-01-06",
+      "averageScore": 61.3
+    },
+    {
+      "batchId": "BATCH-02",
+      "checkpoint": "Checkpoint 2",
+      "date": "2025-01-20",
+      "averageScore": 64.1
+    },
+    {
+      "batchId": "BATCH-02",
+      "checkpoint": "Checkpoint 3",
+      "date": "2025-02-03",
+      "averageScore": 63.9
+    },
+    {
+      "batchId": "BATCH-02",
+      "checkpoint": "Checkpoint 4",
+      "date": "2025-02-17",
+      "averageScore": 64.4
+    },
+    {
+      "batchId": "BATCH-03",
+      "checkpoint": "Checkpoint 1",
+      "date": "2025-02-03",
+      "averageScore": 64.6
+    },
+    {
+      "batchId": "BATCH-03",
+      "checkpoint": "Checkpoint 2",
+      "date": "2025-02-17",
+      "averageScore": 64.5
+    },
+    {
+      "batchId": "BATCH-03",
+      "checkpoint": "Checkpoint 3",
+      "date": "2025-03-03",
+      "averageScore": 66.2
+    },
+    {
+      "batchId": "BATCH-03",
+      "checkpoint": "Checkpoint 4",
+      "date": "2025-03-17",
+      "averageScore": 67.3
+    },
+    {
+      "batchId": "BATCH-04",
+      "checkpoint": "Checkpoint 1",
+      "date": "2025-02-03",
+      "averageScore": 59.3
+    },
+    {
+      "batchId": "BATCH-04",
+      "checkpoint": "Checkpoint 2",
+      "date": "2025-02-17",
+      "averageScore": 60.1
+    },
+    {
+      "batchId": "BATCH-04",
+      "checkpoint": "Checkpoint 3",
+      "date": "2025-03-03",
+      "averageScore": 62.0
+    },
+    {
+      "batchId": "BATCH-04",
+      "checkpoint": "Checkpoint 4",
+      "date": "2025-03-17",
+      "averageScore": 62.7
+    }
+  ],
+  "skills": [
+    {
+      "batchId": "all",
+      "skillArea": "Communication",
+      "averageScore": 66.2,
+      "learnersBelowBenchmark": 67
+    },
+    {
+      "batchId": "all",
+      "skillArea": "Problem Solving",
+      "averageScore": 66.8,
+      "learnersBelowBenchmark": 67
+    },
+    {
+      "batchId": "all",
+      "skillArea": "Python",
+      "averageScore": 64.9,
+      "learnersBelowBenchmark": 69
+    },
+    {
+      "batchId": "all",
+      "skillArea": "SQL",
+      "averageScore": 65.3,
+      "learnersBelowBenchmark": 76
+    },
+    {
+      "batchId": "BATCH-01",
+      "skillArea": "Communication",
+      "averageScore": 73.2,
+      "learnersBelowBenchmark": 11
+    },
+    {
+      "batchId": "BATCH-01",
+      "skillArea": "Problem Solving",
+      "averageScore": 75.1,
+      "learnersBelowBenchmark": 11
+    },
+    {
+      "batchId": "BATCH-01",
+      "skillArea": "Python",
+      "averageScore": 71.1,
+      "learnersBelowBenchmark": 15
+    },
+    {
+      "batchId": "BATCH-01",
+      "skillArea": "SQL",
+      "averageScore": 72.9,
+      "learnersBelowBenchmark": 14
+    },
+    {
+      "batchId": "BATCH-02",
+      "skillArea": "Communication",
+      "averageScore": 62.0,
+      "learnersBelowBenchmark": 20
+    },
+    {
+      "batchId": "BATCH-02",
+      "skillArea": "Problem Solving",
+      "averageScore": 65.1,
+      "learnersBelowBenchmark": 18
+    },
+    {
+      "batchId": "BATCH-02",
+      "skillArea": "Python",
+      "averageScore": 64.1,
+      "learnersBelowBenchmark": 16
+    },
+    {
+      "batchId": "BATCH-02",
+      "skillArea": "SQL",
+      "averageScore": 62.6,
+      "learnersBelowBenchmark": 19
+    },
+    {
+      "batchId": "BATCH-03",
+      "skillArea": "Communication",
+      "averageScore": 69.3,
+      "learnersBelowBenchmark": 13
+    },
+    {
+      "batchId": "BATCH-03",
+      "skillArea": "Problem Solving",
+      "averageScore": 64.7,
+      "learnersBelowBenchmark": 19
+    },
+    {
+      "batchId": "BATCH-03",
+      "skillArea": "Python",
+      "averageScore": 65.1,
+      "learnersBelowBenchmark": 17
+    },
+    {
+      "batchId": "BATCH-03",
+      "skillArea": "SQL",
+      "averageScore": 63.4,
+      "learnersBelowBenchmark": 20
+    },
+    {
+      "batchId": "BATCH-04",
+      "skillArea": "Communication",
+      "averageScore": 60.2,
+      "learnersBelowBenchmark": 23
+    },
+    {
+      "batchId": "BATCH-04",
+      "skillArea": "Problem Solving",
+      "averageScore": 62.1,
+      "learnersBelowBenchmark": 19
+    },
+    {
+      "batchId": "BATCH-04",
+      "skillArea": "Python",
+      "averageScore": 59.5,
+      "learnersBelowBenchmark": 21
+    },
+    {
+      "batchId": "BATCH-04",
+      "skillArea": "SQL",
+      "averageScore": 62.2,
+      "learnersBelowBenchmark": 23
+    }
+  ],
+  "modelMetrics": {
+    "model": "Logistic Regression",
+    "data_origin": "synthetic_demo",
+    "sample_count": 120,
+    "train_sample_count": 90,
+    "test_sample_count": 30,
+    "positive_label": "needed_support",
+    "class_counts": {
+      "train": {
+        "0": 54,
+        "1": 36
+      },
+      "test": {
+        "0": 18,
+        "1": 12
+      }
+    },
+    "feature_columns": [
+      "avg_assessment_score",
+      "score_trend",
+      "attendance_rate",
+      "assignment_completion_rate"
+    ],
+    "decision_threshold": 0.5,
+    "metrics": {
+      "precision": 0.7143,
+      "recall": 0.4167,
+      "f1_score": 0.5263
+    },
+    "confusion_matrix": {
+      "labels": [
+        "on_track (0)",
+        "needs_support (1)"
+      ],
+      "values": [
+        [
+          16,
+          2
+        ],
+        [
+          7,
+          5
+        ]
+      ]
+    },
+    "split": "stratified 75/25 train/test split; random_state=42",
+    "scikit_learn_version": "1.7.2",
+    "dataset_sha256": "b16b44cdc66882b761546d9f0efed87ec21c2a86502c52a1c7f80831baee135b",
+    "trained_at_utc": "2026-11-23T07:44:52.612627+00:00",
+    "notice": "Synthetic demonstration evaluation only; not validated or calibrated on real learners and not a placement or certification decision."
+  }
+}

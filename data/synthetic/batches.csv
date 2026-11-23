@@ -1,0 +1,5 @@
+batch_id,name,program,start_date,end_date,status,data_origin
+BATCH-01,Python Foundations · Jan 2025,Python Development,2025-01-06,2025-03-24,completed,synthetic_demo
+BATCH-02,Data Analytics · Jan 2025,Data Analytics,2025-01-06,2025-03-24,completed,synthetic_demo
+BATCH-03,Web Development · Feb 2025,Web Development,2025-02-03,2025-04-21,completed,synthetic_demo
+BATCH-04,QA Engineering · Feb 2025,QA Engineering,2025-02-03,2025-04-21,completed,synthetic_demo

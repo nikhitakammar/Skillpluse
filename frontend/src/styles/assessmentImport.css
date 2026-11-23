@@ -1,0 +1,23 @@
+.score-import-panel{margin:0 0 15px;padding:16px 18px;background:#fff;border:1px solid #e8ebf2;border-radius:10px;box-shadow:0 4px 14px rgba(31,48,83,.035)}
+.score-import-heading h2{margin:0;color:#2a3850;font-family:Manrope,sans-serif;font-size:13px}
+.score-import-heading p{max-width:900px;margin:5px 0 0;color:#8995a7;font-size:10px;line-height:1.55}
+.score-import-heading code{color:#5169bc;background:#f2f4fb;border-radius:3px;padding:2px 4px}
+.score-import-controls{display:grid;grid-template-columns:minmax(190px,1fr) minmax(200px,1fr) auto;align-items:end;gap:12px;margin-top:13px}
+.score-import-controls label{display:grid;gap:5px;color:#7e8a9e;font-size:9px}
+.score-import-controls input[type=file]{min-width:0;width:100%;box-sizing:border-box;border:1px solid #e5e9f0;border-radius:7px;padding:6px;background:#fff;color:#66748a;font-size:9px}
+.score-import-actions{display:flex;align-items:center;gap:8px}
+.score-import-actions button{white-space:nowrap}
+.score-import-actions button:disabled{opacity:.48;cursor:not-allowed}
+.score-import-hint,.score-import-message{margin:9px 0 0;color:#929dad;font-size:9px;line-height:1.5}
+.score-import-message{white-space:pre-line;padding:9px 10px;border-radius:6px;background:#f6f8fc}
+.score-import-message.success{color:#38846e;background:#edf8f3}
+.score-import-message.error{color:#a94d4d;background:#fff1f1}
+.assessment-create-panel{margin:0 0 12px;padding:12px 16px;background:#fff;border:1px solid #e8ebf2;border-radius:9px;color:#536177}
+.assessment-create-panel summary{cursor:pointer;color:#4d67bb;font-size:10px;font-weight:600}
+.assessment-create-form{display:grid;grid-template-columns:repeat(3,minmax(140px,1fr));align-items:end;gap:11px;margin-top:13px}
+.assessment-create-form label{display:grid;gap:5px;color:#7e8a9e;font-size:9px}
+.assessment-create-form input{width:100%;box-sizing:border-box;border:1px solid #e5e9f0;border-radius:7px;padding:8px;color:#536177;font:inherit;background:#fff}
+.assessment-create-form button{justify-self:start}
+@media(max-width:800px){.score-import-controls{grid-template-columns:1fr}.score-import-actions{flex-wrap:wrap}.score-import-panel{padding:14px}}
+@media(max-width:800px){.assessment-create-form{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.assessment-create-form{grid-template-columns:1fr}}

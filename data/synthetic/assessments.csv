@@ -1,0 +1,65 @@
+assessment_id,batch_id,title,skill_area,max_score,assessment_date
+ASM-01-01-01,BATCH-01,Python Checkpoint 1,Python,100,2025-01-06
+ASM-01-01-02,BATCH-01,SQL Checkpoint 1,SQL,100,2025-01-06
+ASM-01-01-03,BATCH-01,Problem Solving Checkpoint 1,Problem Solving,100,2025-01-06
+ASM-01-01-04,BATCH-01,Communication Checkpoint 1,Communication,100,2025-01-06
+ASM-01-02-01,BATCH-01,Python Checkpoint 2,Python,100,2025-01-20
+ASM-01-02-02,BATCH-01,SQL Checkpoint 2,SQL,100,2025-01-20
+ASM-01-02-03,BATCH-01,Problem Solving Checkpoint 2,Problem Solving,100,2025-01-20
+ASM-01-02-04,BATCH-01,Communication Checkpoint 2,Communication,100,2025-01-20
+ASM-01-03-01,BATCH-01,Python Checkpoint 3,Python,100,2025-02-03
+ASM-01-03-02,BATCH-01,SQL Checkpoint 3,SQL,100,2025-02-03
+ASM-01-03-03,BATCH-01,Problem Solving Checkpoint 3,Problem Solving,100,2025-02-03
+ASM-01-03-04,BATCH-01,Communication Checkpoint 3,Communication,100,2025-02-03
+ASM-01-04-01,BATCH-01,Python Checkpoint 4,Python,100,2025-02-17
+ASM-01-04-02,BATCH-01,SQL Checkpoint 4,SQL,100,2025-02-17
+ASM-01-04-03,BATCH-01,Problem Solving Checkpoint 4,Problem Solving,100,2025-02-17
+ASM-01-04-04,BATCH-01,Communication Checkpoint 4,Communication,100,2025-02-17
+ASM-02-01-01,BATCH-02,Python Checkpoint 1,Python,100,2025-01-06
+ASM-02-01-02,BATCH-02,SQL Checkpoint 1,SQL,100,2025-01-06
+ASM-02-01-03,BATCH-02,Problem Solving Checkpoint 1,Problem Solving,100,2025-01-06
+ASM-02-01-04,BATCH-02,Communication Checkpoint 1,Communication,100,2025-01-06
+ASM-02-02-01,BATCH-02,Python Checkpoint 2,Python,100,2025-01-20
+ASM-02-02-02,BATCH-02,SQL Checkpoint 2,SQL,100,2025-01-20
+ASM-02-02-03,BATCH-02,Problem Solving Checkpoint 2,Problem Solving,100,2025-01-20
+ASM-02-02-04,BATCH-02,Communication Checkpoint 2,Communication,100,2025-01-20
+ASM-02-03-01,BATCH-02,Python Checkpoint 3,Python,100,2025-02-03
+ASM-02-03-02,BATCH-02,SQL Checkpoint 3,SQL,100,2025-02-03
+ASM-02-03-03,BATCH-02,Problem Solving Checkpoint 3,Problem Solving,100,2025-02-03
+ASM-02-03-04,BATCH-02,Communication Checkpoint 3,Communication,100,2025-02-03
+ASM-02-04-01,BATCH-02,Python Checkpoint 4,Python,100,2025-02-17
+ASM-02-04-02,BATCH-02,SQL Checkpoint 4,SQL,100,2025-02-17
+ASM-02-04-03,BATCH-02,Problem Solving Checkpoint 4,Problem Solving,100,2025-02-17
+ASM-02-04-04,BATCH-02,Communication Checkpoint 4,Communication,100,2025-02-17
+ASM-03-01-01,BATCH-03,Python Checkpoint 1,Python,100,2025-02-03
+ASM-03-01-02,BATCH-03,SQL Checkpoint 1,SQL,100,2025-02-03
+ASM-03-01-03,BATCH-03,Problem Solving Checkpoint 1,Problem Solving,100,2025-02-03
+ASM-03-01-04,BATCH-03,Communication Checkpoint 1,Communication,100,2025-02-03
+ASM-03-02-01,BATCH-03,Python Checkpoint 2,Python,100,2025-02-17
+ASM-03-02-02,BATCH-03,SQL Checkpoint 2,SQL,100,2025-02-17
+ASM-03-02-03,BATCH-03,Problem Solving Checkpoint 2,Problem Solving,100,2025-02-17
+ASM-03-02-04,BATCH-03,Communication Checkpoint 2,Communication,100,2025-02-17
+ASM-03-03-01,BATCH-03,Python Checkpoint 3,Python,100,2025-03-03
+ASM-03-03-02,BATCH-03,SQL Checkpoint 3,SQL,100,2025-03-03
+ASM-03-03-03,BATCH-03,Problem Solving Checkpoint 3,Problem Solving,100,2025-03-03
+ASM-03-03-04,BATCH-03,Communication Checkpoint 3,Communication,100,2025-03-03
+ASM-03-04-01,BATCH-03,Python Checkpoint 4,Python,100,2025-03-17
+ASM-03-04-02,BATCH-03,SQL Checkpoint 4,SQL,100,2025-03-17
+ASM-03-04-03,BATCH-03,Problem Solving Checkpoint 4,Problem Solving,100,2025-03-17
+ASM-03-04-04,BATCH-03,Communication Checkpoint 4,Communication,100,2025-03-17
+ASM-04-01-01,BATCH-04,Python Checkpoint 1,Python,100,2025-02-03
+ASM-04-01-02,BATCH-04,SQL Checkpoint 1,SQL,100,2025-02-03
+ASM-04-01-03,BATCH-04,Problem Solving Checkpoint 1,Problem Solving,100,2025-02-03
+ASM-04-01-04,BATCH-04,Communication Checkpoint 1,Communication,100,2025-02-03
+ASM-04-02-01,BATCH-04,Python Checkpoint 2,Python,100,2025-02-17
+ASM-04-02-02,BATCH-04,SQL Checkpoint 2,SQL,100,2025-02-17
+ASM-04-02-03,BATCH-04,Problem Solving Checkpoint 2,Problem Solving,100,2025-02-17
+ASM-04-02-04,BATCH-04,Communication Checkpoint 2,Communication,100,2025-02-17
+ASM-04-03-01,BATCH-04,Python Checkpoint 3,Python,100,2025-03-03
+ASM-04-03-02,BATCH-04,SQL Checkpoint 3,SQL,100,2025-03-03
+ASM-04-03-03,BATCH-04,Problem Solving Checkpoint 3,Problem Solving,100,2025-03-03
+ASM-04-03-04,BATCH-04,Communication Checkpoint 3,Communication,100,2025-03-03
+ASM-04-04-01,BATCH-04,Python Checkpoint 4,Python,100,2025-03-17
+ASM-04-04-02,BATCH-04,SQL Checkpoint 4,SQL,100,2025-03-17
+ASM-04-04-03,BATCH-04,Problem Solving Checkpoint 4,Problem Solving,100,2025-03-17
+ASM-04-04-04,BATCH-04,Communication Checkpoint 4,Communication,100,2025-03-17
