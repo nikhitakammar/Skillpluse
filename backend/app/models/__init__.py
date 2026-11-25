@@ -6,9 +6,12 @@ from app.models.models import (
     Assignment,
     AssignmentSubmission,
     AttendanceRecord,
+    ClassRecording,
     Batch,
     Student,
     SupportOutcome,
+    TrainerStudentSubject,
+    TrainerSubject,
     UserAccount,
 )
 
@@ -18,8 +21,11 @@ __all__ = [
     "Assignment",
     "AssignmentSubmission",
     "AttendanceRecord",
+    "ClassRecording",
     "Batch",
     "Student",
     "SupportOutcome",
+    "TrainerStudentSubject",
+    "TrainerSubject",
     "UserAccount",
 ]

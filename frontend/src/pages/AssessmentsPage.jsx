@@ -6,7 +6,7 @@ import '../styles/assessmentImport.css'
 
 const PAGE_SIZE = 12
 
-function AssessmentsPage({ title, description, assessments, batches, learners, onRefresh }) {
+function AssessmentsPage({ title, description, assessments, batches, learners, isAdmin, onRefresh }) {
   const [search, setSearch] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   const [selectedAssessmentId, setSelectedAssessmentId] = useState('')
@@ -82,7 +82,7 @@ function AssessmentsPage({ title, description, assessments, batches, learners, o
   return (
     <>
       <PageHeading title={title} description={description} />
-      <details className="assessment-create-panel">
+      {isAdmin && <details className="assessment-create-panel">
         <summary>Create an assessment</summary>
         <form className="assessment-create-form" onSubmit={submitAssessment}>
           <label><span>Batch</span><select className="control-select" required value={createBatchId} onChange={(event) => { setAssessmentBatchId(event.target.value); setAssessmentDate('') }}>
@@ -95,8 +95,8 @@ function AssessmentsPage({ title, description, assessments, batches, learners, o
           <button className="primary-button" type="submit" disabled={!createBatch || createState.status === 'loading'}>{createState.status === 'loading' ? 'Creating…' : 'Create assessment'}</button>
         </form>
         {createState.message && <p className={`score-import-message ${createState.status}`} role={createState.status === 'error' ? 'alert' : 'status'}>{createState.message}</p>}
-      </details>
-      <section className="score-import-panel" aria-labelledby="score-import-title">
+      </details>}
+      {isAdmin && <section className="score-import-panel" aria-labelledby="score-import-title">
         <div className="score-import-heading"><div><h2 id="score-import-title">Import assessment scores</h2><p>Upload a UTF-8 CSV with <code>student_id</code> and <code>score</code> columns. Blank scores are skipped; every populated row must pass validation before any scores are saved.</p></div></div>
         <div className="score-import-controls">
           <label><span>Assessment</span><select className="control-select" value={selectedAssessmentId} onChange={(event) => { setSelectedAssessmentId(event.target.value); setImportState({ status: 'idle', message: '' }) }}>
@@ -108,7 +108,7 @@ function AssessmentsPage({ title, description, assessments, batches, learners, o
         </div>
         {selectedAssessment && <p className="score-import-hint">Maximum score: {selectedAssessment.maxScore ?? 100}. Imports allow up to 1,000 data rows and 2 MB per file.</p>}
         {importState.message && <p className={`score-import-message ${importState.status}`} role={importState.status === 'error' ? 'alert' : 'status'}>{importState.message}</p>}
-      </section>
+      </section>}
       <section className="panel table-panel">
         <div className="table-toolbar">
           <div className="table-count"><strong>{filtered.length}</strong><span>assessments in this view</span></div>

@@ -11,13 +11,16 @@ from app.api.deps import get_db
 from app.models import (
     Assessment,
     AssessmentResult,
+    Assignment,
     AssignmentSubmission,
     AttendanceRecord,
     Batch,
     Student,
+    TrainerSubject,
     UserAccount,
 )
 from app.schemas.students import (
+    StudentAssignmentRead,
     StudentCreate,
     StudentDetail,
     StudentListItem,
@@ -27,19 +30,24 @@ from app.schemas.students import (
     StudentScore,
 )
 from app.security.auth import current_user, require_roles
+from app.security.scopes import student_skill_access, trainer_skill_scope, trainer_student_scope
 
 router = APIRouter(prefix="/students", tags=["students"])
 
 
-def activity_metrics(db: Session, student_ids: list[str]) -> dict[str, dict[str, float | None]]:
+def activity_metrics(db: Session, student_ids: list[str], user: UserAccount, skill_area: str | None = None) -> dict[str, dict[str, float | None]]:
     """Compute list/detail metrics in bulk so the roster avoids per-student queries."""
     score_by_student_date: dict[str, dict] = defaultdict(lambda: defaultdict(list))
-    score_rows = db.execute(
+    score_query = (
         select(AssessmentResult.student_id, Assessment.assessment_date, AssessmentResult.score, Assessment.max_score)
         .join(Assessment, Assessment.assessment_id == AssessmentResult.assessment_id)
         .where(AssessmentResult.student_id.in_(student_ids))
         .order_by(Assessment.assessment_date)
-    ).all() if student_ids else []
+    )
+    score_query = trainer_skill_scope(score_query, user, AssessmentResult.student_id, Assessment.skill_area)
+    if skill_area:
+        score_query = score_query.where(func.lower(Assessment.skill_area) == skill_area.casefold())
+    score_rows = db.execute(score_query).all() if student_ids else []
     all_scores: dict[str, list[float]] = defaultdict(list)
     for student_id, assessment_date, score, max_score in score_rows:
         percentage = float(score) / float(max_score) * 100
@@ -55,10 +63,15 @@ def activity_metrics(db: Session, student_ids: list[str]) -> dict[str, dict[str,
         attendance_by_student[student_id].append(attendance_status)
 
     submissions_by_student: dict[str, list] = defaultdict(list)
-    submission_rows = db.execute(
+    submission_query = (
         select(AssignmentSubmission.student_id, AssignmentSubmission.submitted_at)
+        .join(Assignment, Assignment.assignment_id == AssignmentSubmission.assignment_id)
         .where(AssignmentSubmission.student_id.in_(student_ids))
-    ).all() if student_ids else []
+    )
+    submission_query = trainer_skill_scope(submission_query, user, AssignmentSubmission.student_id, Assignment.skill_area)
+    if skill_area:
+        submission_query = submission_query.where(func.lower(Assignment.skill_area) == skill_area.casefold())
+    submission_rows = db.execute(submission_query).all() if student_ids else []
     for student_id, submitted_at in submission_rows:
         submissions_by_student[student_id].append(submitted_at)
 
@@ -86,13 +99,22 @@ def activity_metrics(db: Session, student_ids: list[str]) -> dict[str, dict[str,
 def list_students(
     search: str | None = Query(default=None, max_length=120),
     batch_id: str | None = Query(default=None, max_length=20),
+    skill_area: str | None = Query(default=None, max_length=80),
     active: bool | None = None,
     limit: int = Query(default=25, ge=1, le=100),
     offset: int = Query(default=0, ge=0),
-    _manager: UserAccount = Depends(require_roles("admin", "trainer")),
+    user: UserAccount = Depends(require_roles("admin", "trainer")),
     db: Session = Depends(get_db),
 ) -> StudentPage:
     query = select(Student)
+    query = trainer_student_scope(query, user, Student.student_id)
+    if skill_area and user.role == "trainer":
+        subject_is_assigned = db.scalar(select(TrainerSubject.assignment_id).where(
+            TrainerSubject.trainer_user_id == user.user_id,
+            func.lower(TrainerSubject.skill_area) == skill_area.casefold(),
+        ))
+        if subject_is_assigned is None:
+            raise HTTPException(status_code=403, detail="This trainer is not assigned to that subject")
     if batch_id:
         if db.get(Batch, batch_id) is None:
             raise HTTPException(status_code=404, detail="Batch not found")
@@ -104,7 +126,7 @@ def list_students(
 
     total = db.scalar(select(func.count()).select_from(query.subquery())) or 0
     students = db.scalars(query.order_by(Student.full_name, Student.student_id).offset(offset).limit(limit)).all()
-    activity = activity_metrics(db, [student.student_id for student in students])
+    activity = activity_metrics(db, [student.student_id for student in students], user, skill_area)
     items = [
         {**StudentRead.model_validate(student).model_dump(), **activity[student.student_id]}
         for student in students
@@ -115,7 +137,7 @@ def list_students(
 @router.post("", response_model=StudentRead, status_code=status.HTTP_201_CREATED)
 def create_student(
     payload: StudentCreate,
-    _manager: UserAccount = Depends(require_roles("admin", "trainer")),
+    _admin: UserAccount = Depends(require_roles("admin")),
     db: Session = Depends(get_db),
 ) -> Student:
     batch = db.get(Batch, payload.batch_id)
@@ -141,22 +163,29 @@ def create_student(
 @router.get("/{student_id}", response_model=StudentDetail)
 def get_student(
     student_id: str,
-    user=Depends(current_user),
+    skill_area: str | None = Query(default=None, max_length=80),
+    user: UserAccount = Depends(current_user),
     db: Session = Depends(get_db),
 ) -> StudentDetail:
-    if user.role == "student" and user.student_id != student_id:
-        raise HTTPException(status_code=403, detail="Student accounts can only access their own profile")
+    allowed_skills = student_skill_access(db, user, student_id)
+    if skill_area and allowed_skills is not None and skill_area.casefold() not in {item.casefold() for item in allowed_skills}:
+        raise HTTPException(status_code=403, detail="This trainer is not assigned to that learner's subject")
     student = db.get(Student, student_id)
     if student is None:
         raise HTTPException(status_code=404, detail="Student not found")
 
-    results = db.execute(
+    result_query = (
         select(AssessmentResult, Assessment)
         .join(Assessment, Assessment.assessment_id == AssessmentResult.assessment_id)
         .where(AssessmentResult.student_id == student_id)
         .order_by(Assessment.assessment_date.desc(), Assessment.title)
         .limit(12)
-    ).all()
+    )
+    if allowed_skills is not None:
+        result_query = result_query.where(Assessment.skill_area.in_(allowed_skills))
+    if skill_area:
+        result_query = result_query.where(func.lower(Assessment.skill_area) == skill_area.casefold())
+    results = db.execute(result_query).all()
     scores = [
         StudentScore(
             assessment_id=assessment.assessment_id,
@@ -170,7 +199,7 @@ def get_student(
         for result, assessment in results
     ]
 
-    activity = activity_metrics(db, [student_id])[student_id]
+    activity = activity_metrics(db, [student_id], user, skill_area)[student_id]
 
     return StudentDetail(
         student=StudentRead.model_validate(student),
@@ -186,7 +215,7 @@ def get_student(
 def update_student(
     student_id: str,
     payload: StudentPatch,
-    _manager: UserAccount = Depends(require_roles("admin", "trainer")),
+    _admin: UserAccount = Depends(require_roles("admin")),
     db: Session = Depends(get_db),
 ) -> Student:
     student = db.get(Student, student_id)
@@ -206,3 +235,46 @@ def update_student(
     db.commit()
     db.refresh(student)
     return student
+
+
+@router.get("/{student_id}/assignments", response_model=list[StudentAssignmentRead])
+def list_student_assignments(
+    student_id: str,
+    user: UserAccount = Depends(current_user),
+    db: Session = Depends(get_db),
+) -> list[dict]:
+    allowed_skills = student_skill_access(db, user, student_id)
+    student = db.get(Student, student_id)
+    if student is None:
+        raise HTTPException(status_code=404, detail="Student not found")
+
+    query = (
+        select(Assignment, AssignmentSubmission)
+        .outerjoin(
+            AssignmentSubmission,
+            (AssignmentSubmission.assignment_id == Assignment.assignment_id)
+            & (AssignmentSubmission.student_id == student_id),
+        )
+        .where(Assignment.batch_id == student.batch_id)
+        .order_by(Assignment.due_date, Assignment.title)
+    )
+    if allowed_skills is not None:
+        query = query.where(Assignment.skill_area.in_(allowed_skills))
+
+    from datetime import date
+
+    today = date.today()
+    result = []
+    for assignment, submission in db.execute(query):
+        status_label = "submitted" if submission and submission.submitted_at else "overdue" if assignment.due_date < today else "pending"
+        result.append({
+            "assignment_id": assignment.assignment_id,
+            "title": assignment.title,
+            "skill_area": assignment.skill_area,
+            "assigned_date": assignment.assigned_date,
+            "due_date": assignment.due_date,
+            "submitted_at": submission.submitted_at if submission else None,
+            "score": submission.score if submission else None,
+            "status": status_label,
+        })
+    return result

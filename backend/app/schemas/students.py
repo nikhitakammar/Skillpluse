@@ -76,3 +76,14 @@ class StudentDetail(BaseModel):
     score_trend: float | None
     attendance_rate: float | None
     assignment_completion_rate: float | None
+
+
+class StudentAssignmentRead(BaseModel):
+    assignment_id: str
+    title: str
+    skill_area: str
+    assigned_date: date
+    due_date: date
+    submitted_at: date | None
+    score: float | None
+    status: str

@@ -15,7 +15,7 @@ Run the backend checks from `backend/`:
 python -m unittest discover -s tests -v
 ```
 
-Backend tests use only Python's standard `unittest` runner, plus the API/ML packages already listed in `requirements.txt`. They use an in-memory SQLite database for endpoint tests, so they do not modify `skillpulse.db`.
+Backend tests use only Python's standard `unittest` runner, plus the API/ML packages already listed in `requirements.txt`. They use an in-memory SQLite database for endpoint tests, so they do not modify `skillpulse.db`. Coverage includes admin-only account/scope management, trainer learner/subject isolation, and student self-only history and assignments.
 
 ## Coverage
 
@@ -38,4 +38,4 @@ The new frontend API service test uncovered a dashboard integration defect: per-
 
 ## Current verification result
 
-Frontend: 10 tests pass and Vite production build passes. Backend: 12 tests pass using `unittest`. The installed Starlette TestClient emits a deprecation warning about its optional HTTP client; this does not affect test results. No browser-driven visual acceptance test is included yet.
+Frontend: 12 tests pass and Vite production build passes. Backend: 17 tests pass using `unittest`. The installed Starlette TestClient emits a deprecation warning about its optional HTTP client; this does not affect test results. No browser-driven visual acceptance test is included yet.

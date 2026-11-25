@@ -21,7 +21,7 @@ from app.schemas.predictions import (
 )
 from app.security.auth import require_roles
 
-router = APIRouter(prefix="/predictions", tags=["AI support tools"], dependencies=[Depends(require_roles("admin", "trainer"))])
+router = APIRouter(prefix="/predictions", tags=["AI support tools"], dependencies=[Depends(require_roles("admin"))])
 
 SUPPORT_NOTICE = (
     "Synthetic demonstration model only; the probability estimate is not calibrated on real learners. This signal assists trainer review and must not make placement or certification decisions."

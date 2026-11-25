@@ -18,6 +18,7 @@ class UserCreate(BaseModel):
     password: str = Field(min_length=12, max_length=128)
     role: Role
     student_id: str | None = Field(default=None, min_length=1, max_length=20)
+    subject: str | None = Field(default=None, min_length=1, max_length=80)
 
     @field_validator("username")
     @classmethod
@@ -33,6 +34,10 @@ class UserCreate(BaseModel):
             raise ValueError("Student accounts must be linked to a student record")
         if self.role != "student" and self.student_id:
             raise ValueError("Only student accounts may be linked to a student record")
+        if self.role == "trainer" and not self.subject:
+            raise ValueError("Trainer accounts must be assigned a subject")
+        if self.role != "trainer" and self.subject:
+            raise ValueError("Only trainer accounts may be assigned a subject")
         return self
 
 
@@ -47,6 +52,7 @@ class UserRead(BaseModel):
     username: str
     role: Role
     student_id: str | None
+    subject: str | None = None
     is_active: bool
 
 

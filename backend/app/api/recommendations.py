@@ -10,6 +10,7 @@ from app.api.deps import get_db
 from app.models import Assessment, AssessmentResult, Student
 from app.schemas.recommendations import SkillRecommendation, StudentRecommendations
 from app.security.auth import current_user
+from app.security.scopes import student_skill_access, trainer_skill_scope
 
 router = APIRouter(prefix="/students", tags=["learning recommendations"])
 
@@ -29,15 +30,17 @@ NOTICE = (
 def student_recommendations(
     student_id: str,
     benchmark: float = Query(default=70, ge=0, le=100),
+    skill_area: str | None = Query(default=None, max_length=80),
     user=Depends(current_user),
     db: Session = Depends(get_db),
 ) -> StudentRecommendations:
-    if user.role == "student" and user.student_id != student_id:
-        raise HTTPException(status_code=403, detail="Student accounts can only access their own recommendations")
     if db.get(Student, student_id) is None:
         raise HTTPException(status_code=404, detail="Student not found")
+    allowed_skills = student_skill_access(db, user, student_id)
+    if skill_area and allowed_skills is not None and skill_area.casefold() not in {item.casefold() for item in allowed_skills}:
+        raise HTTPException(status_code=403, detail="This trainer is not assigned to that learner's subject")
 
-    rows = db.execute(
+    query = (
         select(
             Assessment.skill_area,
             func.avg(AssessmentResult.score / Assessment.max_score * 100),
@@ -49,7 +52,13 @@ def student_recommendations(
             Assessment.assessment_date <= date.today(),
         )
         .group_by(Assessment.skill_area)
-    ).all()
+    )
+    query = trainer_skill_scope(query, user, AssessmentResult.student_id, Assessment.skill_area)
+    if allowed_skills is not None:
+        query = query.where(Assessment.skill_area.in_(allowed_skills))
+    if skill_area:
+        query = query.where(func.lower(Assessment.skill_area) == skill_area.casefold())
+    rows = db.execute(query).all()
 
     eligible = [
         (skill_area, float(average), int(count))

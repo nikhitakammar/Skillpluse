@@ -45,6 +45,31 @@ class UserAccount(Base):
     is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
 
 
+class TrainerStudentSubject(Base):
+    """Grant a trainer access to one student's records for one subject."""
+
+    __tablename__ = "trainer_student_subjects"
+    __table_args__ = (
+        UniqueConstraint("trainer_user_id", "student_id", "skill_area", name="uq_trainer_student_subject"),
+    )
+
+    scope_id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    trainer_user_id: Mapped[str] = mapped_column(ForeignKey("user_accounts.user_id"), nullable=False, index=True)
+    student_id: Mapped[str] = mapped_column(ForeignKey("students.student_id"), nullable=False, index=True)
+    skill_area: Mapped[str] = mapped_column(String(80), nullable=False)
+
+
+class TrainerSubject(Base):
+    """A trainer teaches one subject across every batch where it is offered."""
+
+    __tablename__ = "trainer_subjects"
+    __table_args__ = (UniqueConstraint("trainer_user_id", "skill_area", name="uq_trainer_subject"),)
+
+    assignment_id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    trainer_user_id: Mapped[str] = mapped_column(ForeignKey("user_accounts.user_id"), nullable=False, index=True)
+    skill_area: Mapped[str] = mapped_column(String(80), nullable=False)
+
+
 class Assessment(Base):
     __tablename__ = "assessments"
 
@@ -80,6 +105,22 @@ class AttendanceRecord(Base):
     student_id: Mapped[str] = mapped_column(ForeignKey("students.student_id"), nullable=False, index=True)
     session_date: Mapped[date] = mapped_column(Date, nullable=False)
     status: Mapped[str] = mapped_column(String(10), nullable=False)
+
+
+class ClassRecording(Base):
+    """A published class recording link, scoped to a training batch and subject."""
+
+    __tablename__ = "class_recordings"
+
+    recording_id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    batch_id: Mapped[str] = mapped_column(ForeignKey("batches.batch_id"), nullable=False, index=True)
+    skill_area: Mapped[str] = mapped_column(String(80), nullable=False, index=True)
+    title: Mapped[str] = mapped_column(String(160), nullable=False)
+    recorded_on: Mapped[date] = mapped_column(Date, nullable=False)
+    duration_minutes: Mapped[int] = mapped_column(nullable=False)
+    recording_url: Mapped[str] = mapped_column(String(500), nullable=False)
+    is_published: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    data_origin: Mapped[str] = mapped_column(String(30), nullable=False, default="manual")
 
 
 class Assignment(Base):

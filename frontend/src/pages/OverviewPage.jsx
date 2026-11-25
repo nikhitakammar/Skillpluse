@@ -13,13 +13,20 @@ import {
 import MetricCard from '../components/MetricCard.jsx'
 import PageHeading from '../components/PageHeading.jsx'
 import PanelHeading from '../components/PanelHeading.jsx'
+import { displayNameFromUsername, greetingForHour } from '../data/greeting.js'
 
-function OverviewPage({ description, today, summary, batches, learners, skills, trend, trendPeriod, onTrendPeriodChange, onOpenStudents, onOpenSkillGaps }) {
+function OverviewPage({ user, description, today, summary, batches, learners, skills, trend, trendPeriod, onTrendPeriodChange, onOpenStudents, onOpenSkillGaps }) {
+  const greetingName = displayNameFromUsername(user?.username)
   const reviewLearners = [...learners]
     .filter((learner) => learner.averageScore < 70)
     .sort((left, right) => left.averageScore - right.averageScore)
     .slice(0, 5)
   const batchNames = new Map(batches.map((batch) => [batch.batchId, batch.name]))
+  const priorityLearners = [...learners]
+    .filter((learner) => learner.averageScore != null && (learner.averageScore < 70 || learner.attendanceRate < 75 || learner.completionRate < 70))
+    .sort((left, right) => (left.averageScore ?? 100) - (right.averageScore ?? 100))
+    .slice(0, 3)
+  const healthyBatches = batches.filter((batch) => (batch.averageScore ?? 0) >= 70 && (batch.attendanceRate ?? 0) >= 75).length
   const trendAction = (
     <div className="segmented-control" role="group" aria-label="Performance time range">
       <button type="button" className={trendPeriod === 'all' ? 'selected' : ''} onClick={() => onTrendPeriodChange('all')}>All</button>
@@ -29,13 +36,33 @@ function OverviewPage({ description, today, summary, batches, learners, skills, 
 
   return (
     <>
-      <PageHeading eyebrow={today} title="Good morning, Alex" description={description} />
+      <PageHeading eyebrow={today} title={`${greetingForHour()}, ${greetingName}`} description={description} />
 
       <section className="metrics-grid" aria-label="Training summary">
         <MetricCard label="Active learners" value={summary.activeLearners.toLocaleString()} detail="Across selected batches" icon="◎" />
         <MetricCard label="Average score" value={summary.averageScore == null ? "N/A" : `${summary.averageScore}%`} detail="Across recorded assessments" icon="◒" tone="mint" />
         <MetricCard label="Attendance rate" value={summary.attendanceRate == null ? "N/A" : `${summary.attendanceRate}%`} detail="Present = 100%, late = 50%" icon="◷" tone="violet" />
         <MetricCard label="Assignment completion" value={summary.completionRate == null ? "N/A" : `${summary.completionRate}%`} detail="Submitted assignments" icon="✓" tone="amber" />
+      </section>
+
+      <section className="operations-grid" aria-label="Training operations center">
+        <article className="glass-panel action-center">
+          <div><span className="eyebrow">ACTION CENTER</span><h2>Focus learner follow-up</h2><p>Prioritised from recorded score, attendance and assignment indicators.</p></div>
+          <div className="action-center-list">
+            {priorityLearners.map((learner) => <div className="action-center-row" key={learner.studentId}><span className="priority-avatar">{learner.fullName.split(' ').map((part) => part[0]).join('').slice(0, 2)}</span><span><strong>{learner.fullName}</strong><small>{batchNames.get(learner.batchId)?.split(' · ')[0]} · {learner.averageScore}% score</small></span><i>Review</i></div>)}
+            {!priorityLearners.length && <p className="empty-action">No learner currently requires benchmark follow-up.</p>}
+          </div>
+          <button className="glass-button" type="button" onClick={onOpenStudents}>Open learner directory <span>→</span></button>
+        </article>
+        <article className="glass-panel operations-health">
+          <span className="eyebrow">COHORT HEALTH</span><strong>{healthyBatches} <small>of {batches.length}</small></strong><p>batches meet the current score and attendance benchmark.</p>
+          <div className="health-bars"><span style={{ width: `${batches.length ? healthyBatches / batches.length * 100 : 0}%` }} /></div>
+          <button className="text-button" type="button" onClick={onOpenSkillGaps}>Review skill gaps <span aria-hidden="true">→</span></button>
+        </article>
+        <article className="glass-panel operations-note">
+          <span className="eyebrow">OPERATIONS NOTE</span><h2>Training data is ready to review</h2><p>Use batch filters to compare cohorts, open a learner for history, and use assessment imports to update score records.</p>
+          <div className="note-pills"><span>Batch comparison</span><span>CSV scores</span><span>Role access</span></div>
+        </article>
       </section>
 
       <section className="dashboard-grid overview-grid">

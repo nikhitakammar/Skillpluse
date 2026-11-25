@@ -21,17 +21,26 @@ container host, configure `SKILLPULSE_BOOTSTRAP_ADMIN_USERNAME` and
 bootstrap password from the deployment environment. Do not use a shared or
 reused password.
 
-## Roles
+## Roles and access
 
-- **Admin:** manage users and access all manager features.
-- **Trainer:** view and manage learners, assessments, analytics and predictions.
-- **Student:** view only the linked learner profile and personalized practice
-  recommendations.
+- **Admin:** create and deactivate accounts, assign trainer access, and view all
+  manager data.
+- **Trainer:** read only records for individually assigned learners and
+  subjects. A Python assignment, for example, grants access to that learner's
+  Python performance rather than their other subjects.
+- **Student:** view only their linked profile, assessment history, practice
+  suggestions, and assignments for their batch.
 
-Admins create accounts from **User access**. Student accounts must be linked
-to one learner record. Use unique accounts and deactivate accounts when access
-is no longer needed. Learner support predictions are advisory signals for
-trainers; they do not make placement or certification decisions.
+There is no public sign-up. Admins create accounts from **User access**. For a
+trainer, the admin also creates learner/subject assignments on that page.
+Removing an assignment revokes its access on the trainer's next API request.
+Student accounts must be linked to one learner record. Account creation and
+activation are protected by admin-only API checks; trainer screens are
+read-only.
+
+Trainer predictions and global model evaluation are admin-only until a
+subject-scoped model is available. Learner support predictions are advisory
+signals and must not make placement or certification decisions.
 
 The login endpoint is public by design; the remaining data endpoints require
 an authenticated role. The API uses a temporary signing secret in local demo

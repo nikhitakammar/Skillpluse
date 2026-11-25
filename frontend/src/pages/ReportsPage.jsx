@@ -17,7 +17,7 @@ function downloadBatchReport(batches) {
   window.setTimeout(() => URL.revokeObjectURL(objectUrl), 0)
 }
 
-function ReportsPage({ title, description, batches, modelMetrics }) {
+function ReportsPage({ title, description, batches, modelMetrics, showModelEvaluation }) {
   const [exportMessage, setExportMessage] = useState('')
   const metrics = modelMetrics?.metrics
   const matrix = modelMetrics?.confusion_matrix?.values
@@ -34,12 +34,12 @@ function ReportsPage({ title, description, batches, modelMetrics }) {
         description={description}
         action={<button className="primary-button" type="button" onClick={handleExport}><span aria-hidden="true">↓</span> Export batch report</button>}
       />
-      <section className="metrics-grid report-metrics">
+      {showModelEvaluation && <section className="metrics-grid report-metrics">
         <MetricCard label="Model precision" value={metrics ? `${(metrics.precision * 100).toFixed(1)}%` : 'Unavailable'} detail="Held-out synthetic test set" icon="◎" />
         <MetricCard label="Model recall" value={metrics ? `${(metrics.recall * 100).toFixed(1)}%` : 'Unavailable'} detail="Support examples correctly flagged" icon="↗" tone="amber" />
         <MetricCard label="Model F1-score" value={metrics ? `${(metrics.f1_score * 100).toFixed(1)}%` : 'Unavailable'} detail="Precision and recall balance" icon="◒" tone="violet" />
         <MetricCard label="Test examples" value={modelMetrics?.test_sample_count ?? '�'} detail="From a stratified 75/25 split" icon="▤" tone="mint" />
-      </section>
+      </section>}
 
       <section className="dashboard-grid reports-grid">
         <article className="panel panel-large">
@@ -57,7 +57,7 @@ function ReportsPage({ title, description, batches, modelMetrics }) {
           {exportMessage && <p className="export-feedback" role="status">{exportMessage}</p>}
         </article>
 
-        <article className="panel model-panel">
+        {showModelEvaluation && <article className="panel model-panel">
           <div className="model-panel-kicker"><span className="model-icon">✦</span><span>LOGISTIC REGRESSION</span><span className="synthetic-chip">SYNTHETIC</span></div>
           <h2>Support model evaluation</h2>
           <p className="model-description">One held-out evaluation from the generated demonstration dataset.</p>
@@ -70,9 +70,9 @@ function ReportsPage({ title, description, batches, modelMetrics }) {
             </tbody>
           </table> : <p className="model-description">Model evaluation is unavailable. Restore or train the synthetic model artifact.</p>}
           {modelMetrics && <div className="model-caveat"><strong>Demo limitation</strong><p>{modelMetrics.notice}</p></div>}
-        </article>
+        </article>}
       </section>
-      <p className="report-footnote">All displayed data is synthetic. These model results are not evidence of real-world accuracy and must not be used for placement or certification decisions.</p>
+      <p className="report-footnote">{showModelEvaluation ? 'All displayed data is synthetic. These model results are not evidence of real-world accuracy and must not be used for placement or certification decisions.' : 'This report includes only learners and subjects assigned to your trainer account.'}</p>
     </>
   )
 }

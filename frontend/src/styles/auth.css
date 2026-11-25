@@ -12,6 +12,15 @@
 .auth-submit{width:100%;margin-top:3px;padding:11px}
 .auth-error{padding:10px 11px;border-radius:7px;background:#fff1f1;color:#a94d4d;font-size:10px;white-space:pre-line}
 .auth-demo-note{border-top:1px solid #edf0f5;padding-top:14px;margin:19px 0 0!important;color:#9aa4b2!important;font-size:9px!important}
+.auth-card>p,.portal-heading p{color:#4b586d;font-size:14px}
+.auth-card label{color:#344258;font-size:13px}
+.auth-card input{color:#1b2638;font-size:15px}
+.auth-card .auth-demo-note{color:#59677d!important;font-size:12px!important}
+.auth-error{font-size:13px}
+.portal-main .demo-notice{font-size:13px}
+.portal-recommendation strong,.portal-assessment strong{color:#26364d;font-size:13px}
+.portal-recommendation span,.portal-assessment span{color:#536177;font-size:12px}
+.portal-recommendation p{color:#344258;font-size:13px}
 .student-portal{min-height:100vh;background:#f5f7fb}
 .portal-header{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 max(20px,calc((100% - 1260px)/2));background:#fff;border-bottom:1px solid #e8ebf2}
 .portal-header .auth-brand{margin:0}
@@ -31,4 +40,8 @@
 .portal-recommendation p{color:#66748a;font-size:10px;line-height:1.55;margin:8px 0 0}
 .portal-assessment{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .portal-assessment b{font-family:Manrope,sans-serif;color:#445a91;font-size:12px}
+.portal-assessment .assignment-status{font-size:10px;text-transform:capitalize;white-space:nowrap}
+.portal-assessment .assignment-submitted{color:#25825c}
+.portal-assessment .assignment-overdue{color:#bd672d}
+.portal-assessment .assignment-pending{color:#687891}
 @media(max-width:760px){.auth-card{padding:25px}.portal-header{padding:0 14px}.portal-main{padding:15px}.portal-grid{grid-template-columns:1fr}.portal-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}

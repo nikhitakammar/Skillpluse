@@ -1,21 +1,35 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import PageHeading from '../components/PageHeading.jsx'
 import { filterStudentRows, paginateRows } from '../data/dashboardSelectors.js'
-import { fetchLearnerInsights } from '../services/api.js'
+import { fetchLearnerInsights, fetchTrainerLearners } from '../services/api.js'
 
 const PAGE_SIZE = 10
 
-function StudentsPage({ title, description, learners, batches, apiConnected }) {
+function StudentsPage({ title, description, learners, batches, apiConnected, currentUser, batchFilter = 'all' }) {
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
   const [currentPage, setCurrentPage] = useState(1)
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [insights, setInsights] = useState(null)
   const [insightsLoading, setInsightsLoading] = useState(false)
+  const [trainerLearners, setTrainerLearners] = useState([])
+  const [trainerLoadError, setTrainerLoadError] = useState('')
+  const isTrainer = currentUser?.role === 'trainer'
+  useEffect(() => {
+    if (!isTrainer || !apiConnected) return
+    let active = true
+    setTrainerLoadError('')
+    fetchTrainerLearners(null, batchFilter)
+      .then((rows) => { if (active) setTrainerLearners(rows) })
+      .catch((error) => { if (active) setTrainerLoadError(error.message) })
+    return () => { active = false }
+  }, [isTrainer, apiConnected, batchFilter])
   const batchNames = new Map(batches.map((batch) => [batch.batchId, batch.name]))
+  // Never render the unscoped demo roster for a trainer while the API is starting or offline.
+  const roster = isTrainer ? trainerLearners : learners
   const filteredLearners = useMemo(
-    () => filterStudentRows(learners, search, statusFilter),
-    [learners, search, statusFilter],
+    () => filterStudentRows(roster, search, statusFilter),
+    [roster, search, statusFilter],
   )
   const pagination = useMemo(
     () => paginateRows(filteredLearners, currentPage, PAGE_SIZE),
@@ -38,7 +52,7 @@ function StudentsPage({ title, description, learners, batches, apiConnected }) {
     setInsights(null)
     if (!apiConnected) return
     setInsightsLoading(true)
-    try { setInsights(await fetchLearnerInsights(learner.studentId)) }
+    try { setInsights(await fetchLearnerInsights(learner.studentId, currentUser.role)) }
     catch (error) { setInsights({ error: error.message }) }
     finally { setInsightsLoading(false) }
   }
@@ -61,6 +75,10 @@ function StudentsPage({ title, description, learners, batches, apiConnected }) {
           </div>
         </div>
 
+        {trainerLoadError && <p className="account-status error" role="alert">Could not load this subject’s learners: {trainerLoadError}</p>}
+        {isTrainer && !apiConnected && <p className="modal-note" role="status">Trainer learner access needs the live API. Start the backend, then reload this page.</p>}
+        {isTrainer && <p className="page-description">This is your assigned subject roster. Learners are grouped by their training batch in the table.</p>}
+
         <div className="table-scroll">
           <table className="data-table">
             <thead><tr><th>Learner</th><th>Training batch</th><th>Average score</th><th>Trend</th><th>Attendance</th><th>Assignments</th><th>Status</th></tr></thead>
@@ -76,7 +94,7 @@ function StudentsPage({ title, description, learners, batches, apiConnected }) {
                   <td><span className={`status-pill ${learner.isActive ? 'status-active' : 'status-inactive'}`}><i />{learner.isActive ? 'Active' : 'Inactive'}</span></td>
                 </tr>
               ))}
-              {!visibleLearners.length && <tr><td colSpan="7"><div className="empty-state"><strong>No learners match your search</strong><span>Try a different name or clear the status filter.</span></div></td></tr>}
+              {!visibleLearners.length && <tr><td colSpan="7"><div className="empty-state"><strong>{isTrainer ? 'No learners are available for your training subject' : 'No learners match your search'}</strong><span>{isTrainer ? 'Ask an admin to confirm the subject assigned to your trainer account.' : 'Try a different name or clear the status filter.'}</span></div></td></tr>}
             </tbody>
           </table>
         </div>

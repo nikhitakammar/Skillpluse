@@ -40,7 +40,7 @@ function Sidebar({ activePage, onNavigate, user, onLogout }) {
       </nav>
       <div className="sidebar-bottom">
         <div className="avatar">{user?.username?.slice(0, 2).toUpperCase()}</div>
-        <div><strong>{user?.username}</strong><span>{user?.role}</span></div>
+        <div><strong>{user?.username}</strong><span>{user?.role === 'trainer' && user?.subject ? `${user.subject} trainer` : user?.role}</span></div>
         <button className="sidebar-logout" type="button" onClick={onLogout}>Sign out</button>
       </div>
     </aside>

@@ -11,9 +11,10 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from app.api.deps import get_db
-from app.models import Assessment, AssessmentResult, Batch, Student
+from app.models import Assessment, AssessmentResult, Batch, Student, UserAccount
 from app.schemas.assessments import AssessmentCreate, AssessmentRead, AssessmentSummary, ResultCreate, ResultImportSummary, ResultRead
 from app.security.auth import require_roles
+from app.security.scopes import trainer_batch_skill_scope
 
 router = APIRouter(prefix="/assessments", tags=["assessments"], dependencies=[Depends(require_roles("admin", "trainer"))])
 MAX_IMPORT_BYTES = 2_000_000
@@ -23,10 +24,12 @@ MAX_IMPORT_ROWS = 1_000
 @router.get("", response_model=list[AssessmentSummary])
 def list_assessments(
     batch_id: str | None = Query(default=None, max_length=20),
+    user: UserAccount = Depends(require_roles("admin", "trainer")),
     db: Session = Depends(get_db),
 ) -> list[AssessmentSummary]:
-    query = select(Assessment, func.avg(AssessmentResult.score / Assessment.max_score * 100), func.count(AssessmentResult.result_id))\
-        .outerjoin(AssessmentResult, AssessmentResult.assessment_id == Assessment.assessment_id)
+    query = select(Assessment, func.avg(AssessmentResult.score / Assessment.max_score * 100), func.count(AssessmentResult.result_id))
+    query = query.outerjoin(AssessmentResult, AssessmentResult.assessment_id == Assessment.assessment_id)
+    query = trainer_batch_skill_scope(query, user, Assessment.batch_id, Assessment.skill_area)
     if batch_id:
         if db.get(Batch, batch_id) is None:
             raise HTTPException(status_code=404, detail="Batch not found")
@@ -44,7 +47,11 @@ def list_assessments(
 
 
 @router.post("", response_model=AssessmentRead, status_code=status.HTTP_201_CREATED)
-def create_assessment(payload: AssessmentCreate, db: Session = Depends(get_db)) -> Assessment:
+def create_assessment(
+    payload: AssessmentCreate,
+    _admin: UserAccount = Depends(require_roles("admin")),
+    db: Session = Depends(get_db),
+) -> Assessment:
     batch = db.get(Batch, payload.batch_id)
     if batch is None:
         raise HTTPException(status_code=404, detail="Batch not found")
@@ -69,6 +76,7 @@ def create_assessment(payload: AssessmentCreate, db: Session = Depends(get_db)) 
 def create_assessment_result(
     assessment_id: str,
     payload: ResultCreate,
+    _admin: UserAccount = Depends(require_roles("admin")),
     db: Session = Depends(get_db),
 ) -> AssessmentResult:
     assessment = db.get(Assessment, assessment_id)
@@ -124,6 +132,7 @@ def create_assessment_result(
 async def import_assessment_results(
     assessment_id: str,
     request: Request,
+    _admin: UserAccount = Depends(require_roles("admin")),
     db: Session = Depends(get_db),
 ) -> ResultImportSummary:
     """Import score rows from UTF-8 CSV; validation is all-or-nothing."""

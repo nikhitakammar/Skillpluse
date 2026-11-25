@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
 
-from app.api import analytics, assessments, auth, batches, predictions, recommendations, students
+from app.api import analytics, assessments, attendance, auth, batches, predictions, recommendations, recordings, students
 
 app = FastAPI(
     title="Skill Pluse API",
@@ -11,6 +11,8 @@ app = FastAPI(
 )
 
 app.include_router(batches.router, prefix="/api")
+app.include_router(attendance.router, prefix="/api")
+app.include_router(recordings.router, prefix="/api")
 app.include_router(auth.router, prefix="/api")
 app.include_router(students.router, prefix="/api")
 app.include_router(recommendations.router, prefix="/api")

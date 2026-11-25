@@ -11,7 +11,17 @@ from sqlalchemy.pool import StaticPool
 from app.api.deps import get_db
 from app.db.base import Base
 from app.main import app
-from app.models import Assessment, AssessmentResult, AttendanceRecord, Batch, Student, UserAccount
+from app.models import (
+    Assessment,
+    AssessmentResult,
+    Assignment,
+    AssignmentSubmission,
+    AttendanceRecord,
+    Batch,
+    Student,
+    TrainerSubject,
+    UserAccount,
+)
 from app.security.auth import hash_password
 
 
@@ -59,11 +69,17 @@ class ApiContractTests(unittest.TestCase):
                 AttendanceRecord(attendance_id="ATT-A2", student_id="STU-A", session_date=date(2026, 1, 3), status="late"),
             ])
             db.add_all([
+                Assignment(assignment_id="TASK-PY", batch_id="TEST-01", title="Python practice", skill_area="Python", assigned_date=date(2026, 1, 5), due_date=date(2026, 2, 5)),
+                Assignment(assignment_id="TASK-SQL", batch_id="TEST-01", title="SQL practice", skill_area="SQL", assigned_date=date(2026, 1, 6), due_date=date(2026, 2, 6)),
+            ])
+            db.add(AssignmentSubmission(submission_id="SUB-A-PY", student_id="STU-A", assignment_id="TASK-PY", submitted_at=date(2026, 1, 30), score=9))
+            db.add_all([
                 UserAccount(user_id="USR-ADMIN", username="admin", password_hash=hash_password("AdminTestPassword!23"), role="admin", is_active=True),
                 UserAccount(user_id="USR-TRAINER", username="trainer", password_hash=hash_password("TrainerTestPassword!23"), role="trainer", is_active=True),
                 UserAccount(user_id="USR-STUDENT-A", username="student-a", password_hash=hash_password("StudentATestPassword!23"), role="student", student_id="STU-A", is_active=True),
                 UserAccount(user_id="USR-STUDENT-B", username="student-b", password_hash=hash_password("StudentBTestPassword!23"), role="student", student_id="STU-B", is_active=True),
             ])
+            db.add(TrainerSubject(assignment_id="SUBJECT-PY", trainer_user_id="USR-TRAINER", skill_area="Python"))
             db.commit()
 
         def override_db():
@@ -121,7 +137,7 @@ class ApiContractTests(unittest.TestCase):
         self.assertEqual(self.student_client.get("/api/predictions/students/STU-A/support").status_code, 403)
 
     def test_admin_manages_accounts_and_trainer_cannot(self):
-        payload = {"username": "new.trainer", "password": "NewTrainerPassword!23", "role": "trainer"}
+        payload = {"username": "new.trainer", "password": "NewTrainerPassword!23", "role": "trainer", "subject": "Python"}
         forbidden = self.trainer_client.post("/api/auth/users", json=payload)
         self.assertEqual(forbidden.status_code, 403)
         created = self.client.post("/api/auth/users", json=payload)
@@ -138,6 +154,47 @@ class ApiContractTests(unittest.TestCase):
         })
         self.assertEqual(invalid_student.status_code, 422)
 
+    def test_trainer_access_is_automatically_scoped_to_their_subject_batches(self):
+        roster = self.trainer_client.get("/api/students?limit=10")
+        self.assertEqual(roster.status_code, 200)
+        self.assertEqual([row["student_id"] for row in roster.json()["items"]], ["STU-A", "STU-B"])
+
+        detail = self.trainer_client.get("/api/students/STU-A")
+        self.assertEqual(detail.status_code, 200)
+        self.assertEqual({item["skill_area"] for item in detail.json()["recent_assessments"]}, {"Python"})
+        self.assertEqual(self.trainer_client.get("/api/students/STU-B").status_code, 200)
+        scoped_recommendations = self.trainer_client.get("/api/students/STU-A/recommendations?benchmark=71")
+        self.assertEqual(scoped_recommendations.status_code, 200)
+        self.assertEqual([item["skill_area"] for item in scoped_recommendations.json()["recommendations"]], ["Python"])
+        self.assertEqual(self.trainer_client.get("/api/students/STU-B/recommendations").status_code, 200)
+
+        batches = self.trainer_client.get("/api/batches")
+        self.assertEqual([batch["batch_id"] for batch in batches.json()], ["TEST-01"])
+        assessments = self.trainer_client.get("/api/assessments")
+        self.assertEqual({item["skill_area"] for item in assessments.json()}, {"Python"})
+        gaps = self.trainer_client.get("/api/analytics/skill-gaps")
+        self.assertEqual({item["skill_area"] for item in gaps.json()}, {"Python"})
+        overview = self.trainer_client.get("/api/analytics/overview")
+        self.assertEqual(overview.json()["active_learners"], 1)
+        self.assertEqual(overview.json()["average_score"], 73.33)
+        comparisons = self.trainer_client.get("/api/analytics/batch-comparison")
+        self.assertEqual([row["batch_id"] for row in comparisons.json()], ["TEST-01"])
+        self.assertEqual(comparisons.json()[0]["active_learners"], 1)
+        trainer_assignments = self.trainer_client.get("/api/students/STU-A/assignments")
+        self.assertEqual([row["assignment_id"] for row in trainer_assignments.json()], ["TASK-PY"])
+        self.assertEqual(self.trainer_client.get("/api/predictions/model-metrics").status_code, 403)
+        self.assertEqual(self.trainer_client.post("/api/assessments", json={}).status_code, 403)
+
+    def test_trainer_cannot_access_another_subject_batch(self):
+        self.assertEqual(self.trainer_client.get("/api/students/STU-C").status_code, 403)
+        self.assertEqual(self.trainer_client.get("/api/students?limit=10&skill_area=SQL").status_code, 403)
+
+    def test_student_sees_only_their_own_batch_assignments(self):
+        assignments = self.student_client.get("/api/students/STU-A/assignments")
+        self.assertEqual(assignments.status_code, 200)
+        self.assertEqual({item["assignment_id"] for item in assignments.json()}, {"TASK-PY", "TASK-SQL"})
+        self.assertEqual(self.student_client.get("/api/students/STU-B/assignments").status_code, 403)
+
     def test_student_activity_metrics_and_detail(self):
         response = self.client.get("/api/students?batch_id=TEST-01&limit=10")
         self.assertEqual(response.status_code, 200)
@@ -145,7 +202,7 @@ class ApiContractTests(unittest.TestCase):
         self.assertEqual(learner["average_score"], 70.0)
         self.assertEqual(learner["score_trend"], 20.0)
         self.assertEqual(learner["attendance_rate"], 75.0)
-        self.assertIsNone(learner["assignment_completion_rate"])
+        self.assertEqual(learner["assignment_completion_rate"], 100.0)
         detail = self.client.get("/api/students/STU-A")
         self.assertEqual(detail.status_code, 200)
         self.assertEqual(len(detail.json()["recent_assessments"]), 2)

@@ -29,7 +29,17 @@ async function request(path, options) {
     let message = `API request failed (${response.status})`
     try {
       const body = await response.json()
-      message = typeof body.detail === 'string' ? body.detail : body.detail?.message || body.detail?.errors?.join('\n') || message
+      if (typeof body.detail === 'string') {
+        message = body.detail
+      } else if (Array.isArray(body.detail)) {
+        message = body.detail.map((issue) => {
+          const field = Array.isArray(issue.loc) ? issue.loc.filter((part) => part !== 'body').join('.') : ''
+          const description = issue.msg || 'Invalid value'
+          return field ? `${field}: ${description}` : description
+        }).join('\n') || message
+      } else {
+        message = body.detail?.message || body.detail?.errors?.join('\n') || message
+      }
     } catch { /* keep status message */ }
     throw new Error(message)
   }
@@ -68,13 +78,34 @@ export function updateAccountStatus(userId, isActive) {
   })
 }
 
+export function fetchTrainerScopes() {
+  return request('/trainer-scopes')
+}
+
+export function fetchMyTrainerScopes() {
+  return request('/trainer-scopes/mine')
+}
+
+export function createTrainerScope(payload) {
+  return request('/trainer-scopes', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+}
+
+export function deleteTrainerScope(scopeId) {
+  return request(`/trainer-scopes/${encodeURIComponent(scopeId)}`, { method: 'DELETE' })
+}
+
 export async function fetchStudentPortal(studentId) {
   const id = encodeURIComponent(studentId)
-  const [profile, recommendations] = await Promise.all([
+  const [profile, recommendations, assignments] = await Promise.all([
     request(`/students/${id}`),
     request(`/students/${id}/recommendations`),
+    request(`/students/${id}/assignments`),
   ])
-  return { profile, recommendations }
+  return { profile, recommendations, assignments }
 }
 
 export async function importAssessmentScores(assessmentId, csvText) {
@@ -115,6 +146,21 @@ async function allStudents() {
   return [...first.items, ...pages.flatMap((page) => page.items)]
 }
 
+export async function fetchTrainerLearners(skillArea, batchId = 'all') {
+  const query = `${skillArea ? `&skill_area=${encodeURIComponent(skillArea)}` : ''}${batchId && batchId !== 'all' ? `&batch_id=${encodeURIComponent(batchId)}` : ''}`
+  const first = await request(`/students?limit=100&offset=0${query}`)
+  const pages = await Promise.all(Array.from(
+    { length: Math.ceil(Math.max(0, first.total - first.items.length) / 100) },
+    (_, i) => request(`/students?limit=100&offset=${(i + 1) * 100}${query}`),
+  ))
+  return [...first.items, ...pages.flatMap((page) => page.items)].map((student) => ({
+    studentId: student.student_id, batchId: student.batch_id, fullName: student.full_name,
+    enrollmentDate: student.enrollment_date, isActive: student.is_active, dataOrigin: student.data_origin,
+    averageScore: student.average_score, scoreTrend: student.score_trend,
+    attendanceRate: student.attendance_rate, completionRate: student.assignment_completion_rate,
+  }))
+}
+
 export async function fetchDashboardData() {
   const [rawBatches, comparisons, overview, rawStudents, rawAssessments, modelMetrics, globalTrend, globalSkills] = await Promise.all([
     request('/batches'), request('/analytics/batch-comparison'), request('/analytics/overview'), allStudents(),
@@ -151,13 +197,20 @@ export async function fetchDashboardData() {
   }, batches, students, assessments, trends, skills, modelMetrics }
 }
 
-export async function fetchLearnerInsights(studentId) {
+export async function fetchLearnerInsights(studentId, userRole = 'trainer', skillArea = null) {
   const id = encodeURIComponent(studentId)
-  const [profile, support, cluster, recommendations] = await Promise.all([
-    request(`/students/${id}`),
-    request(`/predictions/students/${id}/support`),
-    request(`/predictions/students/${id}/learning-cluster`),
-    request(`/students/${id}/recommendations`),
+  const subjectQuery = skillArea ? `?skill_area=${encodeURIComponent(skillArea)}` : ''
+  const [profile, recommendations] = await Promise.all([
+    request(`/students/${id}${subjectQuery}`),
+    request(`/students/${id}/recommendations${subjectQuery}`),
   ].map((promise) => promise.catch((error) => ({ error: error.message }))))
+  let support = null
+  let cluster = null
+  if (userRole === 'admin') {
+    ;[support, cluster] = await Promise.all([
+      request(`/predictions/students/${id}/support`),
+      request(`/predictions/students/${id}/learning-cluster`),
+    ].map((promise) => promise.catch((error) => ({ error: error.message }))))
+  }
   return { profile, support, cluster, recommendations }
 }

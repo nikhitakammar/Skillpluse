@@ -99,6 +99,12 @@ function ManagerWorkspace({ currentUser, onLogout }) {
         </header>
 
         <div className="page-body">
+          {currentUser.role === 'trainer' && (
+            <section className="trainer-workspace-banner" aria-label="Trainer workspace access">
+              <div><span className="eyebrow">TRAINER WORKSPACE</span><strong>{currentUser.subject || 'Your subject'} learners, organised by batch</strong><p>Performance, assessments, attendance and assignment progress are limited to your {currentUser.subject || 'assigned'} training subject.</p></div>
+              <span className="workspace-lock">🔒 {currentUser.subject || 'Subject'} access</span>
+            </section>
+          )}
           <div className="demo-notice" role="note">
             <span className="notice-mark" aria-hidden="true">i</span>
             <div><strong>{apiStatus === 'connected' ? 'Synthetic demonstration data' : apiStatus === 'connecting' ? 'Connecting to Skill Pluse API' : 'API unavailable — showing demo data'}</strong><span>{apiStatus === 'connected' ? ' API is connected; seeded records and model are synthetic demonstrations.' : apiStatus === 'connecting' ? ' Loading dashboard data from the local FastAPI service.' : ` ${apiError}`}</span></div>
@@ -108,6 +114,7 @@ function ManagerWorkspace({ currentUser, onLogout }) {
           <Suspense fallback={<div role="status" style={{ minHeight: 360, display: 'grid', placeItems: 'center', color: '#8995a7', fontSize: 11 }}>Loading this workspace view…</div>}>
             {activePage === 'overview' && (
               <OverviewPage
+                user={currentUser}
                 description={page.description}
                 today={today}
                 summary={pageData.summary}
@@ -121,11 +128,11 @@ function ManagerWorkspace({ currentUser, onLogout }) {
                 onOpenSkillGaps={() => setActivePage('skills')}
               />
             )}
-            {activePage === 'students' && <StudentsPage title={page.title} description={page.description} learners={pageData.learners} batches={pageData.batches} apiConnected={apiStatus === 'connected'} />}
-            {activePage === 'assessments' && <AssessmentsPage title={page.title} description={page.description} assessments={pageData.assessments} batches={pageData.batches} learners={pageData.learners} onRefresh={connectApi} />}
+            {activePage === 'students' && <StudentsPage title={page.title} description={page.description} learners={pageData.learners} batches={pageData.batches} apiConnected={apiStatus === 'connected'} currentUser={currentUser} batchFilter={batchFilter} />}
+            {activePage === 'assessments' && <AssessmentsPage title={page.title} description={page.description} assessments={pageData.assessments} batches={pageData.batches} learners={pageData.learners} isAdmin={currentUser.role === 'admin'} onRefresh={connectApi} />}
             {activePage === 'skills' && <SkillGapsPage title={page.title} description={page.description} skills={pageData.skills} summary={pageData.summary} />}
-            {activePage === 'reports' && <ReportsPage title={page.title} description={page.description} batches={pageData.batches} modelMetrics={dashboardData.modelMetrics} />}
-            {activePage === 'users' && currentUser.role === 'admin' && <UsersPage learners={pageData.learners} currentUser={currentUser} />}
+            {activePage === 'reports' && <ReportsPage title={page.title} description={page.description} batches={pageData.batches} modelMetrics={dashboardData.modelMetrics} showModelEvaluation={currentUser.role === 'admin'} />}
+            {activePage === 'users' && currentUser.role === 'admin' && <UsersPage learners={dashboardData.students} skills={dashboardData.skills} currentUser={currentUser} />}
           </Suspense>
 
           <footer className="footer-note">Skill Pluse <span>·</span> Training insights that support better learning</footer>
