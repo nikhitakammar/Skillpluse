@@ -30,6 +30,8 @@ services:
     depends_on:
       skillpulse-api:
         condition: service_healthy
+    environment:
+      SKILLPULSE_API_HOST: skillpulse-api
     ports:
       - "127.0.0.1:${SKILLPULSE_WEB_PORT:-8080}:80"
     restart: unless-stopped
